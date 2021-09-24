@@ -88,7 +88,7 @@ return (
         <div style={{ textAlign: 'center' }}>
             <h1 className="font-link1">Customer's <span className="font-link1" style={{ color: 'red' }}>Reviews</span></h1>
         </div>
-        <div style={{ border: '3px solid #000', padding: 20, display: 'flex' ,justifyContent: 'center'}}>
+        <div style={{  padding: 20, display: 'flex' ,justifyContent: 'center'}}>
             <div style={{margin: 15,backgroundColor: 'white', textAlign: 'center',width: '25%',borderRadius: 10, float: 'left', padding: 20, height: 500 }}> 
             <div class="green">
             <img style={{ height: 100, width: 120, marginBottom: -10 }} src={test1} alt=""/>
