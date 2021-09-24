@@ -8,8 +8,19 @@ NavBtn,
 NavBtnLink,
 NavLogo,
 } from './NavbarElements';
-
+import { Avatar } from '@material-ui/core';
+import { useSelector,useDispatch } from 'react-redux';
+import { logout, selectUser } from '../../features/UserSlice';
+import { auth } from '../../firebase';
 const Navbar = () => {
+    const user =useSelector(selectUser);
+    const  dispatch = useDispatch();
+    const signOut=()=>{
+        auth.signOut().then(()=>{
+            dispatch(logout())
+        })
+
+    }
     return (
         <>
            <Nav>
@@ -18,7 +29,7 @@ const Navbar = () => {
             </NavLogo>
             <Bars />
             <NavMenu>
-                <NavLink to="/home" activeStyle>
+                <NavLink to="/" activeStyle>
                     Home
                 </NavLink>
                 <NavLink to="/about" activeStyle>
@@ -27,10 +38,10 @@ const Navbar = () => {
                 <NavLink to="/contact" activeStyle>
                     Contact
                 </NavLink>
-               
-                <NavBtn>
-                    <NavBtnLink to="/sign-up">Sign Up</NavBtnLink>                
-                </NavBtn>
+                <NavLink to="/SignUp" activeStyle>
+                    SignUp
+                </NavLink>
+                <Avatar onClick={signOut} src={user?.photoUrl}/>
             </NavMenu> 
            </Nav> 
         </>
