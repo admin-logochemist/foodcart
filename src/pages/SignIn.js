@@ -5,9 +5,25 @@ import { login } from '../features/UserSlice'
 import { auth,provider } from '../firebase'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
+import { Link, useHistory } from "react-router-dom";
+import Home from './home'
 function SignIn() {
     const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [password, setPassword] = useState("");
+    const  dispatch = useDispatch();
+    
+    const logintoApp =(e)=>{
+        
+        signInWithEmailAndPassword(email,password)
+        .then(({user})=>{dispatch(login({
+            displayName:user.displayName,
+            email:user.email,
+           
+    }))
+    })
+    .catch((error)=>console.log(error))
+   
+    }
     return (
      
               <div className="login">
@@ -23,7 +39,7 @@ function SignIn() {
                
 
 
-<Button  onClick={""}>LOGIN</Button>
+<Button  onClick={logintoApp}>LOGIN</Button>
 <p>Not a Member Register Now</p>
 
               </form>

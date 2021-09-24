@@ -11,9 +11,7 @@ function SignUp(){
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("")
     const  dispatch = useDispatch();
-  const logintoApp =(e)=>{
-      e.pveventDefault()
-  }
+  
   const register=()=>{
     return createUserWithEmailAndPassword(auth, email,password)
 }
