@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/home';
 import About from './pages/about';
-// import Events from './pages/events';
 import Contact from './pages/contact';
 import SignUp from './pages/signup';
 // import Teams from './pages/team';
