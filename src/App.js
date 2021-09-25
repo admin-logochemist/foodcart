@@ -8,9 +8,6 @@ import Contact from './pages/contact';
 import SignUp from './pages/signup';
 import SignIn from './pages/SignIn';
 import AddResturant from './pages/AddResturant';
-// import Teams from './pages/team';
-// import Blogs from './pages/blogs';
-// import SignUp from './pages/signup';
 
 function App() {
 return (

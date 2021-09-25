@@ -1,6 +1,9 @@
 .login{
     background-color: whitesmoke;
-   
+    height: 85vh;
+    display: flex; 
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .login__container{
     display: flex;
@@ -16,7 +19,7 @@
     flex-direction: column;
 }
 .login__container>form>input{
-    width: 350px;
+   
     height: 50px;
     font-size: 20px;
     padding-left: 10px;
@@ -35,4 +38,34 @@
 .login__container>form>p{
 margin-top: 10px;
 text-align: center;
+}
+.sign-in-image{
+    display: flex;
+}   
+.sign-in-image img{ 
+    height: 75vh;
+    width: 50vh;
+}
+.sign-up-image{
+    display: flex;
+}
+.sign-up-image img{ 
+    height: 75vh;
+    width: 50vh;
+}
+.copyright{
+    background-color: red;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.copyright h1{
+    color: white;
+    margin-top: 10px;
+}
+.register-btn {
+    border-radius: 10px;
+    border: hidden;
+    background-color:#00008B;
+    color: white;
 }
