@@ -13,7 +13,7 @@ function SignUp(){
     const [phone, setPhone] = useState("")
     const  dispatch = useDispatch();
   
-  const register=()=>{
+  const register=(props)=>{
 auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
     userAuth.user.updateProfile({
         displayName:name,
@@ -26,6 +26,7 @@ auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
         }))
     })
 })
+
 }
     // const signin=()=>{
     //     signInWithPopup(auth, provider)

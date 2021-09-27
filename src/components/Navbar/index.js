@@ -45,7 +45,7 @@ const Navbar = () => {
                    fontWeight: 'bold',
                     paddingRight: 20,
                     paddingLeft: 20               
-                     }}>BECOME A PARTNER</button>
+                     }} onClick={signOut}>BECOME A PARTNER</button>
                 {/* <Avatar onClick={signOut} src={user?.photoUrl}/> */}
             </NavMenu> 
            </Nav> 

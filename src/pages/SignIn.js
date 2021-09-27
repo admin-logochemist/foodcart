@@ -9,9 +9,10 @@ import { useDispatch } from 'react-redux';
 import { Link, useHistory } from "react-router-dom";
 import Home from './home'
 import SigninImage from '../images/signin.png'
-function SignIn() {
+function SignIn(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
+    const history=useHistory();
     const  dispatch = useDispatch();
     useEffect(() => {
       auth.onAuthStateChanged((userAuth)=>{
@@ -21,6 +22,7 @@ function SignIn() {
             uid:userAuth.uid,
             displayName:userAuth.displayName,
           }))
+          history.push('/')
         }else{
           dispatch(logout)
         }
@@ -34,7 +36,7 @@ function SignIn() {
             displayName:userAuth.user.displayName
           }))
         })
-
+        
       }
     return (
               <div>
