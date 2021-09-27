@@ -4,7 +4,7 @@ import mobileimage from '../images/mobile.png'
 import test1 from '../images/test1.png'
 import Footer from './footer';
 import ResturantInfo from './ResturantInfo';
-
+import Tabs from './Tabs';
 const Home = () => {
 return (
     <div className="home">
@@ -49,6 +49,9 @@ return (
            <h1 className="font-link">Discover the
            <span className="font-link" style={{ color: 'red' }}> best food in town 
            </span></h1>
+       </div>
+       <div style={{ display:'flex',alignItems:'center' ,justifyContent:'center',flexDirection:'row',padding:'40px' }}>
+       <Tabs/>
        </div>
        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
            <button style={{ fontSize: 20, backgroundColor: '#F3CFC6', borderRadius: 1, width: 200, border: 'black', margin: 2 }}> Food Trucks</button>

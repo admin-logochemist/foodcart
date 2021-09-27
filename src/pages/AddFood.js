@@ -24,7 +24,7 @@ function AddFood() {
         console.log(file)
     
     
-        db.collection("resturant").add(
+        db.collection("food").add(
           {
             category: category,
             type: type,
@@ -42,7 +42,7 @@ function AddFood() {
               .then((url) => {
                 setFile(null);
                 setURL(url);
-                db.collection("resturant").doc(doc.id).set({
+                db.collection("food").doc(doc.id).set({
                   postImage: url
                 }, { merge: true })
               })
