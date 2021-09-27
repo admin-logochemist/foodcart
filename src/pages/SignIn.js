@@ -12,6 +12,7 @@ import SigninImage from '../images/signin.png'
 function SignIn(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
+    const history=useHistory();
     const  dispatch = useDispatch();
     useEffect(() => {
       auth.onAuthStateChanged((userAuth)=>{
@@ -21,6 +22,7 @@ function SignIn(props) {
             uid:userAuth.uid,
             displayName:userAuth.displayName,
           }))
+          history.push('/')
         }else{
           dispatch(logout)
         }
