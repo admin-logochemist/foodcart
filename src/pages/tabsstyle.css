@@ -1,16 +1,10 @@
 .tabs {
     display: flex;
     justify-content: center;
-
 }
 .labels {
-    background-color: #fdf0f0;
-    color: black;
-    width: 10;
+
 }
 .Tabpanel12 {
     display: flex;
-}
-.MuiAppBar-root{
-    position: absolute;
 }

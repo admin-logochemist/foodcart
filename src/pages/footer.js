@@ -16,11 +16,10 @@ const Footer = () => {
               <p className="mt-2">
               Are you hungry?<br/> Did you have a long and stressful day? Interested in getting a cheesy pizza delivered to your office or looking to avoid the weekly shop? Then FoodPort is the right destination for you! FoodPort offers you a long and detailed list of the best restaurants and shops near you to help make your everyday easier.
                 </p>
-                <i class="fa fa-facebook iconstyle" aria-hidden="true"></i>
+                {/* <i class="fa fa-facebook iconstyle" aria-hidden="true"></i>
                 <i class="fa fa-twitter iconstyle"  aria-hidden="true"></i>
                 <i class="fa fa-google-plus iconstyle" aria-hidden="true"></i>
-                <i class="fa fa-linkedin iconstyle" aria-hidden="true"></i>
-            
+                <i class="fa fa-linkedin iconstyle" aria-hidden="true"></i> */}           
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
               <h5 className="headings">About</h5>
@@ -170,5 +169,4 @@ const Footer = () => {
     </div>
   )
 }
-
 export default Footer;

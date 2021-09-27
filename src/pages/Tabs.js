@@ -64,8 +64,9 @@ export default function FullWidthTabs() {
           onChange={handleChange}
           indicatorColor="secondary"
           textColor="inherit"
-          variant="fullWidth"
+          variant="Width"
           aria-label="full width tabs example"
+          centered
         >
           <Tab className="labels" label="Food Trucks" {...a11yProps(0)} />
           <Tab className="labels" label="Big Chain Restaurants" {...a11yProps(1)} />

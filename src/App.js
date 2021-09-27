@@ -10,6 +10,7 @@ import SignIn from './pages/SignIn';
 import AddResturant from './pages/AddResturant';
 import AddFoodCart from './pages/AddFoodCart';
 import AddFood from './pages/AddFood';
+import Restaurantbox from './pages/restaurant-box';
 function App() {
 return (
     <Router>
@@ -23,6 +24,7 @@ return (
         <Route path='/addResturant' component={AddResturant} />
         <Route path='/addfoodcart' component={AddFoodCart} />
         <Route path='/addfood' component={AddFood} />
+        <Route path='/restaurantbox' component={Restaurantbox}/>
     </Switch>
     </Router>
 );
