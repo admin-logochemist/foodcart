@@ -4,6 +4,7 @@ import mobileimage from '../images/mobile.png'
 import test1 from '../images/test1.png'
 import Footer from './footer';
 import ResturantInfo from './ResturantInfo';
+import Tabs from './Tabs'
 
 const Home = () => {
 return (
@@ -12,6 +13,7 @@ return (
 	style={{
 		display: 'flex',
         backgroundImage: `url(${imagebackground})`,
+        backgroundBlendMode: 'soft-light',
         justifyContent: 'center',
         backgroundSize: 'cover',
 		height: '94vh',
@@ -20,22 +22,26 @@ return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <div style={{ }}>
 
-	<h1 style={{ color: 'white', fontSize: 70, textAlign: 'center' }}>
+	<h1 style={{ color: 'white', fontSize: 50, textAlign: 'center' }}>
     <span className="font-link"> Locate Food trucks & restaurants</span><br/>
     <span className="font-link" style={{ color: 'red' }}>  anywhere!
     </span></h1>
+    <p style={{color: 'white', fontSize: 20, textAlign: 'center' }}>Discover the best food in town</p>
     <div style={{  }}>
-    <form style={{ backgroundColor: 'white',width: 528, marginLeft: 70, borderRadius: 8 }} action="/" method="get">
+    <form style={{ backgroundColor: 'red',width: 550, height: 100, borderBottom: '100px solid black', borderLeft: '120px solid transparent' }} action="/" method="get">
+    <div style={{ padding: 20 }}>
         <label htmlFor="header-search">
-            <span style={{ color: 'black', fontWeight: 'bold' }}>Search your Area</span>
+            <span style={{ color: 'black', fontWeight: 'bold' }}></span>
         </label>
-        <input style={{ width: 300, height: 30 }}
+        
+        <input style={{ width: 240, height: 60, borderRadius: 10 }}
             type="text"
             id="header-search"
             placeholder="Search Area / Zip Code"
             name="s" 
         />
-        <button style={{ width: 100, backgroundColor: 'black', color: 'white', height: 40 }} type="submit">Search</button>
+        <button style={{ width: 100, backgroundColor: 'black', color: 'white', height: 60, borderRadius: 10 }} type="submit">Search</button>
+        </div>
     </form>
     </div>
 	</div>
@@ -46,22 +52,18 @@ return (
     <br/>
    <section>
        <div style={{ textAlign: 'center', fontSize: 30 }}>
-           <h1 className="font-link">Discover the
-           <span className="font-link" style={{ color: 'red' }}> best food in town 
+           <h1>Discover the
+           <span style={{ color: 'red' }}> best food in town 
            </span></h1>
        </div>
-       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
-           <button style={{ fontSize: 20, backgroundColor: '#F3CFC6', borderRadius: 1, width: 200, border: 'black', margin: 2 }}> Food Trucks</button>
-           <button style={{ fontSize: 20, backgroundColor: '#F3CFC6', borderRadius: 1, width: 200, border: 'black', margin: 2 }}> Big Chain</button>
-           <button style={{ fontSize: 20, backgroundColor: '#F3CFC6', borderRadius: 1, width: 200, border: 'black', margin: 2 }}> Restaurants</button>
-          
+       <br/>
+       <Tabs/>
+       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}> 
        </div>
        <br/>
        <br/>
          <div style={{ display:'flex',alignItems:'center',flexDirection:'row',padding:'40px' }}>
-         <ResturantInfo/>
-         <ResturantInfo/>
-         <ResturantInfo/>
+         
            </div>
    </section>
     <br/>
@@ -72,6 +74,7 @@ return (
         <section>
            <div style={{ backgroundColor: 'red' }}>
                <div style={{display:'flex', alignItems:'center' ,justifyContent:'space-evenly' ,flexDirection:'row'}}>
+                   
                    <div>
                    <h1 style={{ color: 'black' }}>Download <span style={{ color: 'white' }}> the App</span></h1>
                    <p>It's all your fingertips-- the restaurants you love. Find the<br/> right food to suit your mood, and make the first last. Go <br/>ahead download us</p>
@@ -81,6 +84,7 @@ return (
                    </div>
                    <img style={{ width: 550, height: 500}} src={mobileimage}/>
                </div>
+             
            </div>
         </section>
 
