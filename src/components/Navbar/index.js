@@ -12,6 +12,7 @@ import { Avatar } from '@material-ui/core';
 import { useSelector,useDispatch } from 'react-redux';
 import { logout, selectUser } from '../../features/UserSlice';
 import { auth } from '../../firebase';
+import logo from '../../images/logo.png'
 const Navbar = () => {
     const user =useSelector(selectUser);
     const  dispatch = useDispatch();
@@ -24,24 +25,28 @@ const Navbar = () => {
     return (
         <>
            <Nav>
-            <NavLogo to="/">
-               
-            </NavLogo>
+            <img src={logo}/>
             <Bars />
             <NavMenu>
                 <NavLink to="/" activeStyle>
-                    Home
+                    HOME
+                </NavLink>
+                
+                <NavLink to="/contact" activeStyle>
+                    CONTACT
                 </NavLink>
                 <NavLink to="/SignIn" activeStyle>
-                    SignIn
+                    LOGIN
                 </NavLink>
-                <NavLink to="/contact" activeStyle>
-                    Contact
-                </NavLink>
-                <NavLink to="/SignUp" activeStyle>
-                    SignUp
-                </NavLink>
-                <Avatar onClick={signOut} src={user?.photoUrl}/>
+                <button style={{ backgroundColor: '#d70000',
+                 border: 'hidden',
+                  color: 'white',
+                   padding: 5,
+                   fontWeight: 'bold',
+                    paddingRight: 20,
+                    paddingLeft: 20               
+                     }}>BECOME A PARTNER</button>
+                {/* <Avatar onClick={signOut} src={user?.photoUrl}/> */}
             </NavMenu> 
            </Nav> 
         </>

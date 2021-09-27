@@ -28,12 +28,12 @@ const Footer = () => {
 
               </div>
               <ul>
-                <hr className="footercolor"/>
-                <li className="d-flex justify-content-start">
+                {/* <hr className="footercolor"/> */}
+                {/* <li className="d-flex justify-content-start">
                 <i class="fa fa-map-marker mx-2" aria-hidden="true"></i>
                 
                   <a href='#'>Business</a>
-                </li>
+                </li> */}
                 <hr className="footercolor" />
                 <li >
                 <i class="fa fa-phone mx-2" aria-hidden="true"></i>
@@ -68,15 +68,15 @@ const Footer = () => {
                 <li className="d-flex justify-content-between">
                   <a href='#'>&gt; Terms & Conditions</a>  
                 </li>
-                <hr className="footercolor"/>
+                {/* <hr className="footercolor"/>
                 <li className="d-flex justify-content-between">
                   <a href='#'>&gt;  Privacy policy</a> 
-                </li>
+                </li> */}
                 <hr className="footercolor" />
                 <li className="d-flex justify-content-between">
                   <a href='#'>&gt; Contact Us</a> 
                 </li>
-                <hr className="footercolor" />
+                {/* <hr className="footercolor" /> */}
                 <li className="d-flex justify-content-between">
                   
                 </li>
@@ -155,7 +155,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className=' footer-bootom'>
+      <div className=' footer-bootom' style={{ width: '98.85%' }}>
         <div className=''>
           <div className='row full-width'>
             <div className='col-md-12 full-width col-sm-12 col-xs-12 no-padding'>
