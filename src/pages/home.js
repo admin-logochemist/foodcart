@@ -3,6 +3,7 @@ import imagebackground from '../images/bgimage.png'
 import mobileimage from '../images/mobile.png'
 import test1 from '../images/test1.png'
 import Footer from './footer';
+import ResturantInfo from './ResturantInfo';
 
 const Home = () => {
 return (
@@ -53,12 +54,14 @@ return (
            <button style={{ fontSize: 20, backgroundColor: '#F3CFC6', borderRadius: 1, width: 200, border: 'black', margin: 2 }}> Food Trucks</button>
            <button style={{ fontSize: 20, backgroundColor: '#F3CFC6', borderRadius: 1, width: 200, border: 'black', margin: 2 }}> Big Chain</button>
            <button style={{ fontSize: 20, backgroundColor: '#F3CFC6', borderRadius: 1, width: 200, border: 'black', margin: 2 }}> Restaurants</button>
-           
+          
        </div>
        <br/>
        <br/>
-         <div style={{ textAlign: 'center', color: 'black' }}>
-               <h1 style={{ fontSize: 12,  }}>No Food Trucks are found at this location. Please try at different location</h1>
+         <div style={{ display:'flex',alignItems:'center',flexDirection:'row',padding:'40px' }}>
+         <ResturantInfo/>
+         <ResturantInfo/>
+         <ResturantInfo/>
            </div>
    </section>
     <br/>
@@ -74,7 +77,7 @@ return (
                    <p>It's all your fingertips-- the restaurants you love. Find the<br/> right food to suit your mood, and make the first last. Go <br/>ahead download us</p>
                    <button style={{ margin: 2, width: 150, backgroundColor: 'black', color: 'white', borderRadius: 10 }}>Download on the App Store</button>
                    <button style={{ margin: 2, width: 150, backgroundColor: 'black', color: 'white', borderRadius: 10 }}>Download on the Play Store</button>
-                   
+                  
                    </div>
                    <img style={{ width: 550, height: 500}} src={mobileimage}/>
                </div>

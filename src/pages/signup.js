@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import "./signup.css"
 import { login } from '../features/UserSlice'
 import { auth,provider } from '../firebase'
-import { signInWithPopup,createUserWithEmailAndPassword } from "firebase/auth";
+// import { signInWithPopup,createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import SignupImage from '../images/signin.png'
 function SignUp(){
@@ -14,18 +14,29 @@ function SignUp(){
     const  dispatch = useDispatch();
   
   const register=()=>{
-    return createUserWithEmailAndPassword(auth, email,password)
-}
-    const signin=()=>{
-        signInWithPopup(auth, provider)
-        .then(({user})=>{dispatch(login({
-                displayName:user.displayName,
-                email:user.email,
-                photoUrl:user.photoURL,
+auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
+    userAuth.user.updateProfile({
+        displayName:name,
+
+    }).then(()=>{
+        dispatch(login({
+            email:userAuth.user.email,
+            uid:userAuth.user.uid,
+            displayName:name
         }))
-        })
-        .catch((error)=>console.log(error))
-    };
+    })
+})
+}
+    // const signin=()=>{
+    //     signInWithPopup(auth, provider)
+    //     .then(({user})=>{dispatch(login({
+    //             displayName:user.displayName,
+    //             email:user.email,
+    //             photoUrl:user.photoURL,
+    //     }))
+    //     })
+    //     .catch((error)=>console.log(error))
+    // };
     return (
         <div>
         <div className="login">
@@ -46,7 +57,7 @@ function SignUp(){
 <p>Not a Member <button className="register-btn">Register Now</button></p>
 
               </form>
-              <Button variant="contained" color="danger" onClick={signin}>SIGN UP WITH GOOGLE</Button>
+              {/* <Button variant="contained" color="danger" onClick={signin}>SIGN UP WITH GOOGLE</Button> */}
                
             </div>
             <div className="sign-up-image">

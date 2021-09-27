@@ -8,7 +8,8 @@ import Contact from './pages/contact';
 import SignUp from './pages/signup';
 import SignIn from './pages/SignIn';
 import AddResturant from './pages/AddResturant';
-
+import AddFoodCart from './pages/AddFoodCart';
+import AddFood from './pages/AddFood';
 function App() {
 return (
     <Router>
@@ -20,6 +21,8 @@ return (
         <Route path='/signup' component={SignUp} />
         <Route path='/signin' component={SignIn} />
         <Route path='/addResturant' component={AddResturant} />
+        <Route path='/addfoodcart' component={AddFoodCart} />
+        <Route path='/addfood' component={AddFood} />
     </Switch>
     </Router>
 );

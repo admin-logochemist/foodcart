@@ -1,19 +1,16 @@
-import React,{useState,useRef} from 'react'
+import React,{useState} from 'react'
 import { Button } from '@material-ui/core'
-import "./AddResturant.css";
+import "./AddFoodCart.css";
 
-// import { collection, addDoc } from "firebase/firestore"; 
 import { db, projectStorage} from "../firebase";
-
-function AddResturant() {
+function AddFoodCart() {
     const [email, setEmail] = useState("");
     const [ address,setAddress ] = useState("");
-    const [resName, setResName] = useState("");
+    const [cartName, setCartName] = useState("");
     const [phone, setPhone] = useState("");
     const [cusine, setCusine] = useState("");
     const [file, setFile] = useState("");
     const [url, setURL] = useState("");
-    const filePickerRef = useRef(null)
     const addImagetoPost = function (e) {
         setFile(e.target.files[0]);
     
@@ -26,7 +23,7 @@ function AddResturant() {
     
         db.collection("resturant").add(
           {
-            resName: resName,
+            cartName: cartName,
             phone: phone,
             email: email,
             cusine: cusine,
@@ -55,31 +52,29 @@ function AddResturant() {
     
     
       }
-    
-    
     return (
-        <div className="AddResturant">
-            <div className="resturant__container">
-            <h1>Add Resturant</h1>
-            <form>
+        <div className="AddCart">
+        <div className="cart__container">
+        <h1>Add FoodCart</h1>
+        <form>
 
-<input value={resName} type="text" placeholder="Restaurant Name" onChange={(e)=>setResName(e.target.value)}/>
+<input value={cartName} type="text" placeholder="FoodCart Name" onChange={(e)=>setCartName(e.target.value)}/>
 <input value={phone} type="text" placeholder="Phone"onChange={(e)=>setPhone(e.target.value)}/>
 <input value={email} type="email" placeholder="Email"onChange={(e)=>setEmail(e.target.value)}/>
 <input value={address} type="text" placeholder="Address" onChange={(e)=>setAddress(e.target.value)}/>
 <input value={cusine} type="text" placeholder="Cusine" onChange={(e)=>setCusine(e.target.value)}/>
 <label for="file">CoverImage</label>
 <input onChange={addImagetoPost} type="file" />
- 
 
 
-<Button  onClick={handleSubmit}>LOGIN</Button>
+
+<Button  onClick={handleSubmit}>ADD FOODCART</Button>
 
 
 </form>
 </div>
-        </div>
+    </div>
     )
 }
 
-export default AddResturant
+export default AddFoodCart

@@ -1,9 +1,9 @@
 import { Button } from '@material-ui/core'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import "./signup.css"
-import { login } from '../features/UserSlice'
+import { login, logout } from '../features/UserSlice'
 import { auth,provider } from '../firebase'
-import { signInWithEmailAndPassword } from "firebase/auth";
+;
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from "react-router-dom";
 import Home from './home'
@@ -12,19 +12,29 @@ function SignIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
     const  dispatch = useDispatch();
-    
+    useEffect(() => {
+      auth.onAuthStateChanged((userAuth)=>{
+        if(userAuth){
+          dispatch(login({
+            email:userAuth.email,
+            uid:userAuth.uid,
+            displayName:userAuth.displayName,
+          }))
+        }else{
+          dispatch(logout)
+        }
+      })
+    }, [])
     const logintoApp =(e)=>{
-        
-        signInWithEmailAndPassword(email,password)
-        .then(({user})=>{dispatch(login({
-            displayName:user.displayName,
-            email:user.email,
-           
-    }))
-    })
-    .catch((error)=>console.log(error))
-   
-    }
+        auth.signInWithEmailAndPassword(email,password).then((userAuth)=>{
+          dispatch(login({
+            email:userAuth.user.email,
+            uid:userAuth.user.uid,
+            displayName:userAuth.user.displayName
+          }))
+        })
+
+      }
     return (
               <div>
               <div className="login">
