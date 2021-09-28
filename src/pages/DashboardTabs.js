@@ -6,12 +6,13 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import "./DashboardTabs.css"  
 import {useHistory} from 'react-router-dom'
+import test1 from '../images/test1.png'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   const history = useHistory();
 
-  function handleClick() {
+  const handleClick =() => {
     history.push("/addResturant");
   }
 
@@ -71,6 +72,7 @@ export default function VerticalTabs() {
         <Tab label="Foodcart" {...a11yProps(3)} />
         <Tab label="Invite Users" {...a11yProps(4)} />
       </Tabs>
+      <div style={{ backgroundColor: '#f8f8f8' }}>
         <TabPanel value={value} index={0}>
           <div >
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
@@ -107,7 +109,21 @@ export default function VerticalTabs() {
           </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-       This is my Profile
+          <div style={{ backgroundColor: '#f8f8f8', width: '100%', height: '100%'}}>
+            <h1>Your Profile</h1>
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between',  }}>
+              <div style={{}}>
+                <img style={{ borderRadius: '50%', height: 300 }} src={test1} />
+              </div>
+              <div style={{ padding: 10 }}>
+                  <h1>Alex Wilson</h1>
+                  <p style={{ padding: 10 }}>Email: Email@Email.com</p>
+                  <p style={{ marginLeft: 12 }}>Phone: 123456713</p>
+                  <p style={{ marginLeft: 12 }}>Address: USA, New York</p>
+              </div>
+            </div>
+          </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
         These are the Restaurants
@@ -118,6 +134,7 @@ export default function VerticalTabs() {
       <TabPanel value={value} index={4}>
         You can invite User here
       </TabPanel>
+      </div>
     </Box>
     </div>
   );
