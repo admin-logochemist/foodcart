@@ -34,23 +34,23 @@ const Footer = () => {
                   <a href='#'>Business</a>
                 </li> */}
                 
-                <li >
+                
                 <i class="fa fa-phone mx-2" aria-hidden="true"></i>
                 
                   <a href='#'>Popular Sites</a>
-                </li>
+                
                 <hr className="footercolor"  />
-                <li >
+               
                 <i class="fa fa-envelope-o mx-2" aria-hidden="true"></i>
                 
                   <a href='#'>Donation</a>
-                </li>
+              
                 <hr className="footercolor"/>
-                <li >
+               
                 <i class="fa fa-globe mx-2" aria-hidden="true"></i>
                 
                   <a href='#'>Daily Notification Concept</a>
-                </li>
+              
               </ul>
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
@@ -61,11 +61,11 @@ const Footer = () => {
               <ul>
               
                 <li className="d-flex justify-content-between">
-                  <a href='#'> &gt; FAQ</a> 
+                  <a href='#'>  FAQ</a> 
                 </li>
                 <hr className="footercolor" />
                 <li className="d-flex justify-content-between">
-                  <a href='#'>&gt; Terms & Conditions</a>  
+                  <a href='#'> Terms & Conditions</a>  
                 </li>
                 {/* <hr className="footercolor"/>
                 <li className="d-flex justify-content-between">
@@ -73,7 +73,7 @@ const Footer = () => {
                 </li> */}
                 <hr className="footercolor" />
                 <li className="d-flex justify-content-between">
-                  <a href='#'>&gt; Contact Us</a> 
+                  <a href='#'> Contact Us</a> 
                 </li>
                 {/* <hr className="footercolor" /> */}
                 <li className="d-flex justify-content-between">
@@ -140,11 +140,6 @@ const Footer = () => {
                   </div>
                   <div>
                   <a href='#'>Advertise</a>{' '}<br/>
-                  {/* <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i> */}
                   </div>
                   </div>
                 </li>

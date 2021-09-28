@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import "./DashboardTabs.css" ;
 import { Link, useHistory } from "react-router-dom";
+import test1 from '../images/test1.png'
 
 
 function TabPanel(props) {
@@ -87,7 +88,7 @@ export default function VerticalTabs() {
                 <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2 }} onClick={()=>{handleClick()}}>Add Restaurents</button>
               </div>
             </div>
-            <div style={{ backgroundColor: '#f8f8f8',display: 'flex', justifyContent: 'space-evenly' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
             {/* <div style={{  }}>
               <p style={{ fontWeight: 'bold', padding: 30 }}>Advance filters</p>
             </div> */}
@@ -113,7 +114,6 @@ export default function VerticalTabs() {
       <TabPanel value={value} index={1}>
           <div style={{ backgroundColor: '#f8f8f8', width: '100%', height: '100%'}}>
             <h1>Your Profile</h1>
-            
             <div style={{ display: 'flex', justifyContent: 'space-between',  }}>
               <div style={{}}>
                 <img style={{ borderRadius: '50%', height: 300 }} src={test1} />

@@ -139,6 +139,10 @@ footer p {
   /* padding-right: 188px; */
   color: #ffffffd6;
 }
+footer ul{
+  margin-top: 10px;
+  text-align: left;
+}
 footer ul li {
   margin: 16px 0px;
   font-size: 12px;
@@ -146,6 +150,12 @@ footer ul li {
 }
 footer ul li a {
   color: #ffffffd6;
+  text-decoration: none;
+}
+footer ul a{
+  color: #ffffffd6;
+  text-decoration: none;
+  font-size: 12px;
 }
 footer h5 {
   font-size: 18px;
@@ -194,7 +204,8 @@ footer {
 }
 .headings {
   color: #d70005 !important;
-  font-size: 2px;
+  font-size: 20px;
+  font-weight: bold;
 }
 .footerlink {
   background-color: white;
