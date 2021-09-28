@@ -30,6 +30,7 @@ function AddResturant() {
             phone: phone,
             email: email,
             cusine: cusine,
+            address:address
           }
         ).then(doc => {
           const uploadTask = projectStorage.ref(`/imaged/${__filename}`).put(file)

@@ -4,29 +4,25 @@ import ReactStars from "react-rating-stars-component";
 import GoogleMapReact from 'google-map-react';
 import "./restaurant-box.css"
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-map-react'
+import { useSelector } from 'react-redux';
 
+import { selectOpenResturant } from '../features/ResSlice';
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Restaurantbox (props){  
     const ratingChanged = (newRating) => {
         console.log(newRating);
       };
-     
+     const selectResturant=useSelector(selectOpenResturant)
 return (
     <div>
-	<div style={{
-        display: 'flex',
-        backgroundImage: `url(${image})`,
-        justifyContent: 'center',
-        backgroundSize: 'cover',
-		height: '60vh',
-        width: 1360
-    }}> 
+	<div>
+    <img width="100%" height="500px" src={selectResturant.img}/>
         </div>
                 {/* Headings Area */}
                 <div className="default">
                 <div className="headings">
-                    <h1>Tree Lounge</h1>
+                    <h1>{selectResturant.resname}.</h1>
             <ReactStars
                 count={5}
                 onChange={ratingChanged}
@@ -38,15 +34,16 @@ return (
                 activeColor="#FFFF00"
             />
             <p>112 Reviews</p>
-            <p>Email@email.com</p>
-            <p>+1(205)-122-1221</p>
+            <p>{selectResturant.email}</p>
+            <p>{selectResturant.phone}</p>
                 </div>
                 <div className="next">
                      <h1>Location</h1>
-                     <p>This is a location area</p>
-
-                     <h1>Salt Lake County, Utah</h1>
-                     <p>3608 Coleman Avenue, Palm Springs, California</p>
+                   
+                     
+                     <p>{selectResturant.address}</p>
+                    
+                    
                 {/* <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "" }}

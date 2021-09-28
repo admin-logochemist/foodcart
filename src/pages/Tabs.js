@@ -87,6 +87,7 @@ export default function FullWidthTabs(item) {
               phone={item.phone}
               email={item.email}
               cusine={item.cusine}
+              address={item.address}
             />
           );
         })
