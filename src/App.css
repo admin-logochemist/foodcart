@@ -1,6 +1,6 @@
-/* * {
-  overflow: auto;
-} */
+* {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
 
 
 .font-link1 {
@@ -194,7 +194,7 @@ footer {
 }
 .headings {
   color: #d70005 !important;
-  font-size: 24px;
+  font-size: 2px;
 }
 .footerlink {
   background-color: white;
