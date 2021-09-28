@@ -112,20 +112,7 @@ export default function VerticalTabs() {
           </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-          <div style={{ backgroundColor: '#f8f8f8', width: '100%', height: '100%'}}>
-            <h1>Your Profile</h1>
-            <div style={{ display: 'flex', justifyContent: 'space-between',  }}>
-              <div style={{}}>
-                <img style={{ borderRadius: '50%', height: 300 }} src={test1} />
-              </div>
-              <div style={{ padding: 10 }}>
-                  <h1>Alex Wilson</h1>
-                  <p style={{ padding: 10 }}>Email: Email@Email.com</p>
-                  <p style={{ marginLeft: 12 }}>Phone: 123456713</p>
-                  <p style={{ marginLeft: 12 }}>Address: USA, New York</p>
-              </div>
-            </div>
-          </div>
+         sasa
       </TabPanel>
       <TabPanel value={value} index={2}>
         These are the Restaurants
