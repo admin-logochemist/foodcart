@@ -1,5 +1,4 @@
-import React from 'react';
-import image from '../images/restaurant1.jpg';
+import React from 'react';          
 import ReactStars from "react-rating-stars-component";
 import GoogleMapReact from 'google-map-react';
 import "./restaurant-box.css"

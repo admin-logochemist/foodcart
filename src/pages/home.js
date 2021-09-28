@@ -77,9 +77,9 @@ return (
                    
                    <div className="Download-the-App">
                    <h1 style={{ color: 'black' }}>Download <span style={{ color: 'white' }}> the App</span></h1>
-                   <p>It's all your fingertips-- the restaurants you love. Find the<br/> right food to suit your mood, and make the first last. Go <br/>ahead download us</p>
-                   <button className="btn-mobile">Download on the App Store</button>
-                   <button className="btn-mobile">Download on the Play Store</button>
+                   <p>It's all your fingertips-- the restaurants you love. Find the right food to suit your mood,<br/> and make the first last. Go ahead download us</p>
+                   <button className="btn-mobile">Download from App Store</button>
+                   <button className="btn-mobile">Download from Play Store</button>
                   
                    </div>
                    <img className="mobile-image" src={mobileimage}/>
