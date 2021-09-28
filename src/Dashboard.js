@@ -4,7 +4,7 @@ import VerticalTabs from './pages/DashboardTabs'
 function Dashboard() {
     return (
         <div>
-            <h1>Hello</h1>
+            <h1>Dashboard</h1>
            <VerticalTabs/>
         </div>
     )

@@ -19,14 +19,12 @@
     flex-direction: column;
 }
 .login__container>form>input{
-   
     height: 50px;
     font-size: 20px;
     padding-left: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
 }
-
 .login__container>form>button{
     width: 355px;
     height: 54px;

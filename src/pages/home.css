@@ -1,6 +1,6 @@
 .mobile-image{
     width: 400px;
-    height: 450px;
+    height: 400px;
 }
 .testimonials{ 
     padding: 20px;
@@ -78,8 +78,8 @@
     padding: 15px;
    }
    .btn-mobile{
-       padding: 10px 10px;
-       margin-left: 10px;
+       
+       margin-left: 25px;
    }
    .form-search-bar{
        width: 380px;

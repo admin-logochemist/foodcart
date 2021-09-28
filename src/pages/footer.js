@@ -22,7 +22,7 @@ const Footer = () => {
                 <i class="fa fa-linkedin iconstyle" aria-hidden="true"></i> */}           
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
-              <h5 className="headings">About</h5>
+              <h5 className="headings">ABOUT</h5>
               <div className="footerlink">
 
               </div>
@@ -33,7 +33,7 @@ const Footer = () => {
                 
                   <a href='#'>Business</a>
                 </li> */}
-                <hr className="footercolor" />
+                
                 <li >
                 <i class="fa fa-phone mx-2" aria-hidden="true"></i>
                 
@@ -54,12 +54,12 @@ const Footer = () => {
               </ul>
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
-              <h5 className="headings">Useful Links</h5>
+              <h5 className="headings">USEFUL LINKS</h5>
               <div className="footerlink">
 
               </div>
               <ul>
-              <hr className="footercolor"/>
+              
                 <li className="d-flex justify-content-between">
                   <a href='#'> &gt; FAQ</a> 
                 </li>
@@ -82,7 +82,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
-              <h5 className="headings">For Business</h5>
+              <h5 className="headings">FOR BUSINESS</h5>
               <div className="footerlink">
 
               </div>
