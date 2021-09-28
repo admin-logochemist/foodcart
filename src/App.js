@@ -11,7 +11,7 @@ import AddResturant from './pages/AddResturant';
 import AddFoodCart from './pages/AddFoodCart';
 import AddFood from './pages/AddFood';
 import Restaurantbox from './pages/restaurant-box';
-import dashboard from './pages/dashboard'
+import Dashboard from './Dashboard';
 function App() {
 return (
     <Router>
@@ -26,7 +26,8 @@ return (
         <Route path='/addfoodcart' component={AddFoodCart} />
         <Route path='/addfood' component={AddFood} />
         <Route path='/restaurantbox' component={Restaurantbox}/>
-        <Route path='/dashbaord' component={dashboard}/>
+        <Route path='/dashboard' component={Dashboard}/>
+
     </Switch>
     </Router>
 );

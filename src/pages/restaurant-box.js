@@ -1,11 +1,9 @@
-import React from 'react';          
+import React from 'react';
 import ReactStars from "react-rating-stars-component";
-import GoogleMapReact from 'google-map-react';
 import "./restaurant-box.css"
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-map-react'
 import { useSelector } from 'react-redux';
-
 import { selectOpenResturant } from '../features/ResSlice';
+import FoodResults from './FoodResults';
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Restaurantbox (props){  
@@ -32,9 +30,10 @@ return (
                 fullIcon={<i className="fa fa-star"></i>}
                 activeColor="#FFFF00"
             />
-            <p>112 Reviews</p>
+           
             <p>{selectResturant.email}</p>
             <p>{selectResturant.phone}</p>
+            <FoodResults/>
                 </div>
                 <div className="next">
                      <h1>Location</h1>
