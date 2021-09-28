@@ -1,19 +1,12 @@
-<<<<<<< HEAD
 import React,{useState,useEffect} from 'react';
 
-=======
-import React from 'react';
->>>>>>> 2d43c5416693e181add39770faa558a665a7af58
 import ReactStars from "react-rating-stars-component";
 import "./restaurant-box.css"
-<<<<<<< HEAD
-import {db} from '../firebase';
-=======
->>>>>>> 2d43c5416693e181add39770faa558a665a7af58
 import { useSelector } from 'react-redux';
 import { selectOpenResturant } from '../features/ResSlice';
 import FoodResults from './FoodResults';
 import { Image } from 'react-bootstrap';
+import {db} from '../firebase'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Restaurantbox (props){  

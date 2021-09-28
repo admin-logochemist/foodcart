@@ -4,16 +4,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import "./DashboardTabs.css"  
-import {useHistory} from 'react-router-dom'
+import "./DashboardTabs.css" ;
+import { Link, useHistory } from "react-router-dom";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-  const history = useHistory();
-
-  function handleClick() {
-    history.push("/addResturant");
-  }
 
   return (
     <div
@@ -47,7 +43,14 @@ function a11yProps(index) {
 
 export default function VerticalTabs() {
   const [value, setValue] = React.useState(0);
+  const history = useHistory();
 
+  function handleClick() {
+    history.push("/addResturant");
+  }
+  function handleClicked() {
+    history.push("/addfoodcart");
+  }
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -79,8 +82,8 @@ export default function VerticalTabs() {
                 <h2 style={{ fontWeight: 'bold' }}>Welcome to Dashboard</h2>
               </div>
               <div className="btn-one">
-                <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2, marginLeft: 300 }}>Add FoodCart</button>
-                <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2 }}>Add Restaurents</button>
+                <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2, marginLeft: 300 }} onClick={()=>{handleClicked()}}>Add FoodCart</button>
+                <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2 }} onClick={()=>{handleClick()}}>Add Restaurents</button>
               </div>
             </div>
             <div style={{ backgroundColor: '#f8f8f8',display: 'flex', justifyContent: 'space-evenly' }}>
@@ -110,13 +113,8 @@ export default function VerticalTabs() {
        This is my Profile
       </TabPanel>
       <TabPanel value={value} index={2}>
-<<<<<<< HEAD
-        Item Three
-      </TabPanel> 
-=======
         These are the Restaurants
       </TabPanel>
->>>>>>> 2d43c5416693e181add39770faa558a665a7af58
       <TabPanel value={value} index={3}>
         This is a Food Cart
       </TabPanel>
