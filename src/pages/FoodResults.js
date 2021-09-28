@@ -2,20 +2,20 @@ import React from 'react'
 import "./FoodResults.css"
 
 
-import logo from '../images/logo.png';
+import burger from './pic1.jpg';
 function FoodResults({
-    img,location,title,description,star,price,total
+    img,foodtype,title,description,star,price,total
 }) {
     return (
         <div className="eventResults">
-            <img src={logo} alt=""/>
+            <img src={img} alt=""/>
             
             <div class="eventr__info">
                 <div class="event__infoTop">
-                    <p>Gulshan</p>
-                    <h3>Burger </h3>
+                    <p>{foodtype}</p>
+                    <h3>{title}</h3>
                     <p>------</p>
-                    <p>Chicken Double Decker</p>
+                    <p>{description}</p>
 
         
 
@@ -28,9 +28,9 @@ function FoodResults({
                     </p>
                     </div>
                     <div class="event__price">
-                        <h4>
-                            345
-                        </h4>
+                        <h3> 
+                           $ {price}
+                        </h3>
                      
                     </div>
 
