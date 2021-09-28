@@ -74,7 +74,7 @@ function AddResturant() {
  
 
 
-<Button  onClick={handleSubmit}>LOGIN</Button>
+<Button onClick={handleSubmit}>Add Restaurent</Button>
 
 
 </form>

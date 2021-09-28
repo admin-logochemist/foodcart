@@ -4,6 +4,7 @@ import mobileimage from '../images/mobile.png'
 import test1 from '../images/test1.png'
 import Footer from './footer';
 import Tabs from './Tabs'
+import "./home.css"
 
 const Home = () => {
 return (
@@ -26,14 +27,14 @@ return (
     <span className="font-link" style={{ color: 'red' }}>  anywhere!
     </span></h1>
     <p style={{color: 'white', fontSize: 20, textAlign: 'center' }}>Discover the best food in town</p>
-    <div style={{  }}>
-    <form style={{ backgroundColor: 'red',width: 550, height: 100, borderBottom: '100px solid black', borderLeft: '120px solid transparent' }} action="/" method="get">
+    <div style={{}}>
+    <form className="form-search-bar" action="/" method="get">
     <div style={{ padding: 20 }}>
         <label htmlFor="header-search">
             <span style={{ color: 'black', fontWeight: 'bold' }}></span>
         </label>
         
-        <input style={{ width: 240, height: 60, borderRadius: 10 }}
+        <input className="Imput-Search"
             type="text"
             id="header-search"
             placeholder="Search Area / Zip Code"
@@ -72,16 +73,16 @@ return (
    {/* this is a section */}
         <section>
            <div style={{ backgroundColor: 'red' }}>
-               <div style={{display:'flex', alignItems:'center' ,justifyContent:'space-evenly' ,flexDirection:'row'}}>
+               <div style={{display:'flex', alignItems:'center' ,justifyContent:'space-evenly' ,flexDirection:'row', flexWrap: 'wrap'}}>
                    
-                   <div>
+                   <div className="Download-the-App">
                    <h1 style={{ color: 'black' }}>Download <span style={{ color: 'white' }}> the App</span></h1>
                    <p>It's all your fingertips-- the restaurants you love. Find the<br/> right food to suit your mood, and make the first last. Go <br/>ahead download us</p>
-                   <button style={{ margin: 2, width: 150, backgroundColor: 'black', color: 'white', borderRadius: 10 }}>Download on the App Store</button>
-                   <button style={{ margin: 2, width: 150, backgroundColor: 'black', color: 'white', borderRadius: 10 }}>Download on the Play Store</button>
+                   <button className="btn-mobile">Download on the App Store</button>
+                   <button className="btn-mobile">Download on the Play Store</button>
                   
                    </div>
-                   <img style={{ width: 550, height: 500}} src={mobileimage}/>
+                   <img className="mobile-image" src={mobileimage}/>
                </div>
              
            </div>
@@ -90,35 +91,35 @@ return (
      {/* new section */}
 
     <section>
-        <div style={{ backgroundColor: 'lightgray'}}>
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ backgroundColor: '#f0f2f5'}}>
+        <div style={{ textAlign: 'center', paddingTop: 15 }}>
             <h1 className="font-link1">Customer's <span className="font-link1" style={{ color: 'red' }}>Reviews</span></h1>
         </div>
-        <div style={{  padding: 20, display: 'flex' ,justifyContent: 'center'}}>
-            <div style={{margin: 15,backgroundColor: 'white', textAlign: 'center',width: '25%',borderRadius: 10, float: 'left', padding: 20, height: 500 }}> 
+        <div className="testimonials">
+            <div className="white-thing"> 
             <div class="green">
             <img style={{ height: 100, width: 120, marginBottom: -10 }} src={test1} alt=""/>
-                <h1 className="font-link1">Edy Labvnosky</h1>
+                <h1 className="testimonial-name" className="font-link1">Edy Labvnosky</h1>
                 <p className="font-link1">Write a review for<span style={{ color: 'red' }}> SF Chickenbox</span></p>
                 <p className="font-link1">The following review reflect my takeout experence DURING the sheiter-in-piace order currently in effect ** Somehow I know I'd find an excuse to try the trie chicken. I just wouldn't have beileved it would be a pandemic that got me in hare with my cloth face mask and disposable gioves</p>
                 <span style={{ color: 'red' }}>05 Sep, 2020</span>
             </div>
             </div>
 
-            <div style={{margin: 15,backgroundColor: 'white',textAlign: 'center', width: '25%', float: 'left',borderRadius: 10, padding: 20,  height: 500 }}> 
+            <div className="white-thing"> 
             <div class="green">
             <img style={{ height: 100, width: 120, marginBottom: -10 }} src={test1} alt=""/>
-            <h1 style={{  }} className="font-link1">Edy Labvnosky</h1>
+            <h1 className="testimonial-name" className="font-link1">Edy Labvnosky</h1>
                 <p className="font-link1">Write a review for<span style={{ color: 'red' }}> SF Chickenbox</span></p>
                 <p className="font-link1">The following review reflect my takeout experence DURING the sheiter-in-piace order currently in effect ** Somehow I know I'd find an excuse to try the trie chicken. I just wouldn't have beileved it would be a pandemic that got me in hare with my cloth face mask and disposable gioves</p>
                 <span style={{ color: 'red' }}>05 Sep, 2020</span>
             </div>
             </div>
 
-            <div style={{margin: 15,backgroundColor: 'white',textAlign: 'center', width: '25%', float: 'left', padding: 20,borderRadius: 10,  height: 500 }}> 
+            <div className="white-thing"> 
             <div class="green">
             <img style={{ height: 100, width: 120, marginBottom: -10 }} src={test1} alt=""/>
-            <h1 className="font-link1">Edy Labvnosky</h1>
+            <h1 className="testimonial-name" className="font-link1">Edy Labvnosky</h1>
                 <p className="font-link1">Write a review for<span style={{ color: 'red' }}> SF Chickenbox</span></p>
                 <p className="font-link1">The following review reflect my takeout experence DURING the sheiter-in-piace order currently in effect ** Somehow I know I'd find an excuse to try the trie chicken. I just wouldn't have beileved it would be a pandemic that got me in hare with my cloth face mask and disposable gioves</p>
                 <span style={{ color: 'red' }}>05 Sep, 2020</span>
