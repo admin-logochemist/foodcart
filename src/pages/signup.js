@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core'
 import React,{useState} from 'react'
 import "./signup.css"
 import { login } from '../features/UserSlice'
-import { auth,provider } from '../firebase'
+import { auth,db,provider } from '../firebase'
 // import { signInWithPopup,createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import SignupImage from '../images/signin.png'
@@ -10,7 +10,8 @@ function SignUp(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("");
-    const [phone, setPhone] = useState("")
+    const [phone, setPhone] = useState("");
+    const [bname, setBName] = useState("");
     const  dispatch = useDispatch();
   
   const register=(props)=>{
@@ -27,6 +28,14 @@ auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
     })
 })
 
+db.collection('user').add(
+    {
+        name:name,
+        phone:phone,
+        email:email,
+        bname:bname
+    }
+)
 }
     // const signin=()=>{
     //     signInWithPopup(auth, provider)
@@ -51,7 +60,7 @@ auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
               <input value={phone} type="text" placeholder="Phone"onChange={(e)=>setPhone(e.target.value)}/>
              <input value={email} type="email" placeholder="Email"onChange={(e)=>setEmail(e.target.value)}/>
                 <input value={password} type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-               
+                <input value={bname} type="text" placeholder="BuisnessName" onChange={(e)=>setBName(e.target.value)}/>
 
 
 <Button  onClick={register}>LOGIN</Button>
