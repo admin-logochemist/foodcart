@@ -3,7 +3,6 @@ import imagebackground from '../images/bgimage.png'
 import mobileimage from '../images/mobile.png'
 import test1 from '../images/test1.png'
 import Footer from './footer';
-import ResturantInfo from './ResturantInfo';
 import Tabs from './Tabs'
 
 const Home = () => {

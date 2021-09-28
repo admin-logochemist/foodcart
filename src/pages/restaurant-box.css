@@ -4,3 +4,16 @@
 .headings h1{
     color: black;
 }
+.default{ 
+    display: flex;
+    justify-content: space-around;
+}
+.default h1{
+
+}
+.next h1{ 
+    padding: 45px;
+}
+.next p{ 
+    padding-left: 45px;
+}

@@ -3,6 +3,7 @@ import image from '../images/restaurant1.jpg';
 import ReactStars from "react-rating-stars-component";
 import GoogleMapReact from 'google-map-react';
 import "./restaurant-box.css"
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-map-react'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -20,16 +21,10 @@ return (
         backgroundSize: 'cover',
 		height: '60vh',
         width: 1360
-    }}>
-    <div>
-            <div>
-                
-            </div>
-            
-        </div>
-        
+    }}> 
         </div>
                 {/* Headings Area */}
+                <div className="default">
                 <div className="headings">
                     <h1>Tree Lounge</h1>
             <ReactStars
@@ -43,10 +38,16 @@ return (
                 activeColor="#FFFF00"
             />
             <p>112 Reviews</p>
-            <p>Tuesday: 12:00 PM – 12:00 AM</p>
+            <p>Email@email.com</p>
+            <p>+1(205)-122-1221</p>
                 </div>
                 <div className="next">
-                <div style={{ height: '100vh', width: '100%' }}>
+                     <h1>Location</h1>
+                     <p>This is a location area</p>
+
+                     <h1>Salt Lake County, Utah</h1>
+                     <p>3608 Coleman Avenue, Palm Springs, California</p>
+                {/* <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "" }}
           defaultCenter={props.center}
@@ -58,7 +59,8 @@ return (
             text="My Marker"
           />
         </GoogleMapReact>
-      </div>
+      </div> */}
+                </div>
                 </div>
         </div>
 );
