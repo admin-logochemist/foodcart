@@ -13,6 +13,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { logout, selectUser } from '../../features/UserSlice';
 import { auth } from '../../firebase';
 import logo from '../../images/logo.png'
+import Home from '../../pages/home';
 const Navbar = () => {
     const user =useSelector(selectUser);
     const  dispatch = useDispatch();
@@ -20,12 +21,11 @@ const Navbar = () => {
         auth.signOut().then(()=>{
             dispatch(logout())
         })
-
     }
     return (
         <>
            <Nav>
-            <img src={logo}/>
+            <img src={logo} onClick={() => Home()}/>
             <Bars />
             <NavMenu>
                 <NavLink to="/" activeStyle>

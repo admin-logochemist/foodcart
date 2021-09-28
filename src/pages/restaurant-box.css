@@ -4,12 +4,9 @@
 .headings h1{
     color: black;
 }
-.default{ 
+.default{   
     display: flex;
     justify-content: space-around;
-}
-.default h1{
-
 }
 .next h1{ 
     padding: 45px;

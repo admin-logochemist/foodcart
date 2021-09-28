@@ -13,7 +13,6 @@ reducers:{
     logout:(state)=>{
         state.user=null;
     },
-   
 }
 });
 export const {login,logout}=userSlice.actions;

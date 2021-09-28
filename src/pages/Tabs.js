@@ -105,7 +105,7 @@ export default function FullWidthTabs(item) {
       <div className="tabs">
     <Box sx={{ bgcolor: 'background.paper', width: '100%'}}>
       <AppBar position="static">
-        <Tabs
+        <Tabs className="main-tabs"
           value={value}
           onChange={handleChange}
           indicatorColor="secondary"
