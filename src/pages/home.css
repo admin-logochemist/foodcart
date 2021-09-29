@@ -86,6 +86,15 @@
        border-left: 120px solid transparent;
    }
    .Imput-Search{
-       margin-right: 20px;
+        margin-right: 20px !important;
    }
+   .MuiTab-root{
+    max-width: 125px!important;
+  }
+  .form-search-bar {
+    width: 550px;
+    height: 78px;
+    border-bottom: 107px solid black;
+    border-left: 120px solid transparent;
+}
 }

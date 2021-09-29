@@ -29,7 +29,7 @@ return (
     <p style={{color: 'white', fontSize: 20, textAlign: 'center' }}>Discover the best food in town</p>
     <div style={{}}>
     <form className="form-search-bar" action="/" method="get">
-    <div style={{ padding: 20 }}>
+    <div style={{ paddingTop: 18, paddingRight: 11 }}>
         <label htmlFor="header-search">
             <span style={{ color: 'black', fontWeight: 'bold' }}></span>
         </label>
