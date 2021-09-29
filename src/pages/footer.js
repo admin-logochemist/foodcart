@@ -152,7 +152,7 @@ const Footer = () => {
       <div className=' footer-bootom' style={{ width: '98.85%' }}>
         <div className=''>
           <div className='row full-width'>
-            <div className='col-md-12 full-width col-sm-12 col-xs-12 no-padding'>
+            <div className="CopyRight">
               <p className='no-margin-bottom full-width text-center text-light bg-dark p-3'>
                @ Copyright FoodPort &copy; {new Date().getFullYear()}  All Rights Reserved
               </p>

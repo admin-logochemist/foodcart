@@ -3,6 +3,7 @@ import React,{useState} from 'react'
 import "./signup.css"
 import { login } from '../features/UserSlice'
 import { auth,db,provider } from '../firebase'
+import { Link, useHistory } from "react-router-dom";
 // import { signInWithPopup,createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import SignupImage from '../images/signin.png'
@@ -13,6 +14,7 @@ function SignUp(){
     const [phone, setPhone] = useState("");
     const [bname, setBName] = useState("");
     const  dispatch = useDispatch();
+    const history=useHistory();
   
   const register=(props)=>{
 auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
@@ -27,6 +29,7 @@ auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
         }))
     })
 })
+history.push('./dashboard')
 
 db.collection('user').add(
     {

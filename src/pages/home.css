@@ -58,7 +58,6 @@
         display: flex;
         justify-content: space-between;
     }
-
    .green h1{
        padding-top: 20px;
        font-size: 20px;
@@ -77,8 +76,7 @@
    .Download-the-App p{
     padding: 15px;
    }
-   .btn-mobile{
-       
+   .btn-mobile{ 
        margin-left: 25px;
    }
    .form-search-bar{
