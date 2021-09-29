@@ -24,7 +24,6 @@ const ResturantInfo = ({resname,phone,email,cusine,img,address}) => {
           <CardText>{email}</CardText>
           <CardText>{phone}</CardText>
           <CardText>{address}</CardText>
-         
         </CardBody>
       </Card>
     </div>

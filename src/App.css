@@ -1,8 +1,6 @@
 * {
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
-
-
 .font-link1 {
   font-family: 'Mukta', sans-serif;
 }
@@ -50,7 +48,6 @@
     transform: rotate(360deg);
   }
 }
-
 body {
   margin: 0;
 }
@@ -104,6 +101,7 @@ footer .social-icon li {
 footer .social-icon li a {
   color: #fff;
 }
+
 .download-app button.button1,
 footer button.button1 {
   background: black;

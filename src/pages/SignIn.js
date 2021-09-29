@@ -64,7 +64,7 @@ function SignIn(props) {
             </div>
         </div>
         <div className="copyright">
-                <h1 style={{ fontSize: 20,  }}>Copyright 2020.All rights reserved.</h1>
+                <h1 style={{ fontSize: 20,  }}>Copyright 2021.All rights reserved.</h1>
         </div>
         </div>
     )

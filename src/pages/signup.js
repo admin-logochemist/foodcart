@@ -64,7 +64,7 @@ db.collection('user').add(
 
 
 <Button  onClick={register}>LOGIN</Button>
-<p>Not a Member <button className="register-btn">Register Now</button></p>
+<p>Already a member? <button className="register-btn">Login</button></p>
 
               </form>
               {/* <Button variant="contained" color="danger" onClick={signin}>SIGN UP WITH GOOGLE</Button> */}
