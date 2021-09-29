@@ -50,9 +50,27 @@ export default function FullWidthTabs(item) {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const [resturant, setResturants] = useState([]);
+  const [resturantb, setResturantb] = useState([]);
+  const [foodcart, setfoodcart] = useState([]);
   const getResturants=()=>{
-    db.collection('resturant').onSnapshot(snapshot=>(
+    db.collection('resturant').where('type','==',"Big Chain Resturant" ).onSnapshot(snapshot=>(
      setResturants(snapshot.docs.map(doc=>({
+       data:doc.data()
+     }
+     ))) 
+    ))
+  };
+  const getFoodCart=()=>{
+    db.collection('foodcart').onSnapshot(snapshot=>(
+     setfoodcart(snapshot.docs.map(doc=>({
+       data:doc.data()
+     }
+     ))) 
+    ))
+  };
+  const getResturant=()=>{
+    db.collection('resturant').where('type','==',"Local Resturant" ).onSnapshot(snapshot=>(
+     setResturantb(snapshot.docs.map(doc=>({
        data:doc.data()
      }
      ))) 
@@ -60,8 +78,41 @@ export default function FullWidthTabs(item) {
   };
   useEffect(() => {
     getResturants();
-    
+    getResturant();
+    getFoodCart();
   }, [])
+  const renderFoodCart = () => {
+    if (resturant.length > 0) {
+      console.log("foodcart", foodcart);
+      async function trying(url) {
+        let image = await url.then(async (url) => { return url })
+        console.log('image', image)
+        return image.toString()
+      }
+      // console.log('state', img)
+      return foodcart.map((item, index) => {
+        var detail = []
+        console.log("ï", item)
+        for (const i in item) {
+          detail.push(item[i])
+        }
+        return detail.map((item) => {
+          // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
+          return (
+  
+            <ResturantInfo
+              img={item.postImage}
+              resname={item.resName}
+              phone={item.phone}
+              email={item.email}
+              cusine={item.cusine}
+              address={item.address}
+            />
+          );
+        })
+      })
+    }
+  };
   const renderResturants = () => {
     if (resturant.length > 0) {
       console.log("resturant", resturant);
@@ -72,6 +123,38 @@ export default function FullWidthTabs(item) {
       }
       // console.log('state', img)
       return resturant.map((item, index) => {
+        var detail = []
+        console.log("ï", item)
+        for (const i in item) {
+          detail.push(item[i])
+        }
+        return detail.map((item) => {
+          // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
+          return (
+  
+            <ResturantInfo
+              img={item.postImage}
+              resname={item.resName}
+              phone={item.phone}
+              email={item.email}
+              cusine={item.cusine}
+              address={item.address}
+            />
+          );
+        })
+      })
+    }
+  };
+  const renderResturant = () => {
+    if (resturant.length > 0) {
+      console.log("resturantb", resturantb);
+      async function trying(url) {
+        let image = await url.then(async (url) => { return url })
+        console.log('image', image)
+        return image.toString()
+      }
+      // console.log('state', img)
+      return resturantb.map((item, index) => {
         var detail = []
         console.log("ï", item)
         for (const i in item) {
@@ -126,16 +209,22 @@ export default function FullWidthTabs(item) {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="Tabpanel12">
-        {renderResturants()}
+        <div className="Tabpanel12">
+            {renderFoodCart()}
          
          </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Big Chain Restaurants
+        <div className="Tabpanel12">
+            {renderResturants()}
+         
+         </div>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Local Restaurants
+        <div className="Tabpanel12">
+          
+        {renderResturant()}
+         </div>
         </TabPanel>
       </SwipeableViews>
     </Box>

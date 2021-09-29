@@ -14,6 +14,8 @@ function AddFood() {
     const [description, setDescription] = useState("");
     const [file, setFile] = useState("");
     const [url, setURL] = useState("");
+  
+
     const addImagetoPost = function (e) {
         setFile(e.target.files[0]);
     
@@ -23,7 +25,7 @@ function AddFood() {
         e.preventDefault();
         console.log(file)
     
-    
+
         db.collection("food").add(
           {
             category: category,

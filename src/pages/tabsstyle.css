@@ -4,4 +4,12 @@
 }
 .Tabpanel12 {
     display: flex;
+    flex-wrap: wrap;
+}
+.MuiAppBar-colorPrimary {
+    color: black!important;
+    background-color: white!important;
+}
+.MuiPaper-elevation4 {
+    box-shadow: none!important;
 }

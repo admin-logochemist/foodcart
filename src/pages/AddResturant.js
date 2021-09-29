@@ -13,6 +13,7 @@ function AddResturant() {
     const [cusine, setCusine] = useState("");
     const [file, setFile] = useState("");
     const [url, setURL] = useState("");
+    const [type, setType] = useState("");
     const filePickerRef = useRef(null)
     const addImagetoPost = function (e) {
         setFile(e.target.files[0]);
@@ -30,7 +31,8 @@ function AddResturant() {
             phone: phone,
             email: email,
             cusine: cusine,
-            address:address
+            address:address,
+            type:type
           }
         ).then(doc => {
           const uploadTask = projectStorage.ref(`/imaged/${__filename}`).put(file)
@@ -69,6 +71,12 @@ function AddResturant() {
 <input value={email} type="email" placeholder="Email"onChange={(e)=>setEmail(e.target.value)}/>
 <input value={address} type="text" placeholder="Address" onChange={(e)=>setAddress(e.target.value)}/>
 <input value={cusine} type="text" placeholder="Cusine" onChange={(e)=>setCusine(e.target.value)}/>
+<select value={type} onChange={(e)=>setType(e.target.value)}>
+<option value="">Select Resturant</option>
+  <option value="Local Resturant">Local Resturant</option>
+  <option value="Big Chain Resturant">Big Chain Resturant</option>
+
+</select>
 <label for="file">CoverImage</label>
 <input onChange={addImagetoPost} type="file" />
  
