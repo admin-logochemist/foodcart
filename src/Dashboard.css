@@ -1,0 +1,10 @@
+.Main-div{
+    display: flex;
+    justify-content: space-around;
+}
+.headings{
+    flex: 0.45;
+}
+.btn{
+    flex: 0.7;
+}

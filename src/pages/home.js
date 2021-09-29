@@ -29,7 +29,7 @@ return (
     <p style={{color: 'white', fontSize: 20, textAlign: 'center' }}>Discover the best food in town</p>
     <div style={{}}>
     <form className="form-search-bar" action="/" method="get">
-    <div style={{ padding: 20 }}>
+    <div style={{ paddingTop: 18, paddingRight: 11 }}>
         <label htmlFor="header-search">
             <span style={{ color: 'black', fontWeight: 'bold' }}></span>
         </label>
@@ -72,16 +72,22 @@ return (
     <br/>
    {/* this is a section */}
         <section>
-           <div style={{ backgroundColor: 'red' }}>
+           <div style={{ backgroundColor: 'red'}}>
                <div style={{display:'flex', alignItems:'center' ,justifyContent:'space-evenly' ,flexDirection:'row', flexWrap: 'wrap'}}>
                    
                    <div className="Download-the-App">
                    <h1 style={{ color: 'black' }}>Download <span style={{ color: 'white' }}> the App</span></h1>
-                   <p>It's all your fingertips-- the restaurants you love. Find the right food to suit your mood,<br/> and make the first last. Go ahead download us</p>
-                   <button className="btn-mobile">Download from App Store</button>
-                   <button className="btn-mobile">Download from Play Store</button>
-                  
-                   </div>
+                   <p style={{ color: 'black' }}>It's all your fingertips-- the restaurants you love. Find the right food to suit your mood,<br/> and make the first last. Go ahead download us</p>
+                        <button type="button" className="btn-mobile" onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href = 'http://appstore.com';
+                        }}>Download from App Store</button>
+                        <button type="button" className="btn-mobile" onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href = 'http://playstore.com';
+                        }}>Download from Play Store</button>
+
+                    </div>
                    <img className="mobile-image" src={mobileimage}/>
                </div>
              
@@ -98,7 +104,7 @@ return (
         <div className="testimonials">
             <div className="white-thing"> 
             <div class="green">
-            <img style={{ height: 100, width: 120, marginBottom: -10 }} src={test1} alt=""/>
+            <img style={{ height: 100, width: 120, marginBottom: -10, borderRadius: '50%' }} src={test1} alt=""/>
                 <h1 className="testimonial-name" className="font-link1">Edy Labvnosky</h1>
                 <p className="font-link1">Write a review for<span style={{ color: 'red' }}> SF Chickenbox</span></p>
                 <p className="font-link1">The following review reflect my takeout experence DURING the sheiter-in-piace order currently in effect ** Somehow I know I'd find an excuse to try the trie chicken. I just wouldn't have beileved it would be a pandemic that got me in hare with my cloth face mask and disposable gioves</p>
@@ -130,9 +136,7 @@ return (
         </div>
         </div>
     </section>
-
 <Footer/>
-
    </div>
 
 );

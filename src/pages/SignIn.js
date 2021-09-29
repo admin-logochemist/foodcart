@@ -22,7 +22,7 @@ function SignIn(props) {
             uid:userAuth.uid,
             displayName:userAuth.displayName,
           }))
-          history.push('/')
+          history.push('/dashboard')
         }else{
           dispatch(logout)
         }
@@ -37,6 +37,9 @@ function SignIn(props) {
           }))
         })
         
+      }
+      function handleClick() {
+        history.push("/SignUp");
       }
     return (
               <div>
@@ -53,11 +56,9 @@ function SignIn(props) {
 
 
 <Button onClick={logintoApp}>LOGIN</Button>
-<p>Not a Member? <button className="register-btn" onClick={SignUp}>Register Now</button></p>
+<p>Not a Member? <button className="register-btn" onClick={() => handleClick()}>Register Now</button></p>
 
               </form>
-             
-               
             </div>
             <div className="sign-in-image">
             <img src={SigninImage}/>

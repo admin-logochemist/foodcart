@@ -13,19 +13,30 @@ import { useSelector,useDispatch } from 'react-redux';
 import { logout, selectUser } from '../../features/UserSlice';
 import { auth } from '../../firebase';
 import logo from '../../images/logo.png'
+import { Link, useHistory } from "react-router-dom";
+import Badge from "@material-ui/core/Badge";
 import Home from '../../pages/home';
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 const Navbar = () => {
     const user =useSelector(selectUser);
+    const [itemCount, setItemCount] = React.useState(0);
+    const history=useHistory();
     const  dispatch = useDispatch();
     const signOut=()=>{
         auth.signOut().then(()=>{
             dispatch(logout())
         })
     }
+    function handleClick() {
+        history.push("/");
+      }
+      function handletheClick() {
+        history.push("/signup");
+      }
     return (
         <>
-           <Nav>
-            <img src={logo} onClick={() => Home()}/>
+           <Nav style={{ cursor: 'pointer' }}>
+            <img src={logo} onClick={() => handleClick()}/>
             <Bars />
             <NavMenu>
                 <NavLink to="/" activeStyle>
@@ -45,7 +56,12 @@ const Navbar = () => {
                    fontWeight: 'bold',
                     paddingRight: 20,
                     paddingLeft: 20               
-                     }} onClick={signOut}>BECOME A PARTNER</button>
+                     }} onClick={() => handletheClick()}>BECOME A PARTNER</button>
+                    <Badge color="secondary" badgeContent={itemCount}>
+                        <div style={{ color: '#d70000', marginLeft: 10 }}>
+                        <ShoppingCartIcon />{" "}
+                        </div>
+                    </Badge>
                 {/* <Avatar onClick={signOut} src={user?.photoUrl}/> */}
             </NavMenu> 
            </Nav> 

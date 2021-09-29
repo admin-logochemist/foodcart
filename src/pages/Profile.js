@@ -6,6 +6,7 @@ import { db } from "../firebase";
 
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import test1 from '../images/test1.png'
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
@@ -35,8 +36,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
   },
   con: {
-    textAlign: "left",
-    fontSize: 18
+    fontSize: 18,
   }
 
 }));
@@ -70,21 +70,29 @@ const Profile = (props) => {
       <main className={classes.content} style={{}}>
         <Grid item >
           <div className={classes.iconsize} >
-            <AccountCircleIcon style={{ fontSize: 60 }} color="primary" />
+            
             {eventP.map((item, index) => {
               return (
                 <div>
-                  <h2>{item.data.name}</h2>
-                  <div className={classes.con}>
+                  <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+              <div>
+              <img style={{ borderRadius: '50%', height: 300 }} src={test1}/>
+            </div>
+            <div className={classes.con}>
+            <h2 style={{ }}>{item.data.name}</h2>
+                  
                     <p></p>
 
-                    <p >Email:{item.data.email}</p>
-                    <p>Phone No:{item.data.phone}</p>
+                    <p style={{  }}>Email: {item.data.email}</p>
+                    <p>Phone No: {item.data.phone}</p>
+                    <Button variant="outlined" color="primary" >Edit Profile</Button>
 
+            </div>
+                 
                     {/* <p>Invite Link: <a style={{ fontStyle: 'italic', fontSize: 14 }} href={`http://member.mshoppingworld.com/register/${loggedInUser.user.userCode}`}>http://member.mshoppingworld.com/register/${loggedInUser.user.userCode}</a></p> */}
                   </div>
-                  <div>
-                    <Button variant="outlined" color="primary" >Edit Profile</Button>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    
                   </div>
                 </div>
               )

@@ -19,13 +19,10 @@ function FoodResults({
 
         
 
-                </div>
+                </div>                  
                 <div class="event__infoBottom">
                     <div class="event__stars">
                         
-                    <p>
-                       
-                    </p>
                     </div>
                     <div class="event__price">
                         <h3> 

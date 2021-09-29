@@ -10,6 +10,9 @@ import { Link, useHistory } from "react-router-dom";
 import test1 from "../images/test1.png"
 import {db} from "../firebase"
 import Profile from './Profile';
+import FoodcartDetails from './Food-cartDetails'
+import TableCell from './RestaurantCard'
+import BoxSx from './RestaurentsDetails'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -51,6 +54,11 @@ export default function VerticalTabs({name,email,phone,bname}) {
   function handleClick() {
     history.push("/addResturant");
   }
+  
+  function handleClickedd() {
+    history.push("/addFood");
+  }
+
   function handleClicked() {
     history.push("/addfoodcart");
   }
@@ -87,7 +95,6 @@ export default function VerticalTabs({name,email,phone,bname}) {
         <Tab label="Profile" {...a11yProps(1)} />
         <Tab label="Restaurants" {...a11yProps(2)} />
         <Tab label="Foodcart" {...a11yProps(3)} />
-        <Tab label="Invite Users" {...a11yProps(4)} />
       </Tabs>
       <div style={{ }}>
         <TabPanel value={value} index={0}>
@@ -127,30 +134,46 @@ export default function VerticalTabs({name,email,phone,bname}) {
       </TabPanel>
       <TabPanel value={value} index={1}>
      <Profile/>
-          {/* <div style={{ backgroundColor: 'white', width: '100%', height: '100%'}}>
-            <h1>Your Profile</h1>
-            
-            <div style={{ display: 'flex', justifyContent: 'space-between',  }}>
-              <div style={{}}>
-                <img style={{ borderRadius: '50%', height: 300 }} src={test1} />
-              </div>
-              <div style={{ padding: 10 }}>
-                  <h1>{name}</h1>
-                  <p style={{ padding: 10 }}>Email: {email}</p>
-                  <p style={{ marginLeft: 12 }}>Phone: {phone}</p>
-                  <p style={{ marginLeft: 12 }}>{bname}</p>
-              </div>
-            </div>
-          </div> */}
       </TabPanel>
       <TabPanel value={value} index={2}>
-        These are the Restaurants
+      <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }} >
+              <div classname="Dashboard-box">
+                <h1 style={{ color: 'red', fontSize: 15, fontWeight: 'bold' }}>Dashboard</h1>
+                <h2 style={{ fontWeight: 'bold' }}>Your Restaurants</h2>
+              </div>
+              <div className="btn-one">
+                <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2, marginLeft: 400 }} onClick={()=>{handleClickedd()}}>Add FoodItem</button>
+                {/* <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2 }} onClick={()=>{handleClick()}}>Add Restaurents</button> */}
+              </div>
+            </div>
+            <div style={{ backgroundColor: '#f8f8f8',display: 'flex', justifyContent: 'space-evenly' }}>
+            </div>
+            <br/>
+            <br/>
+                  <BoxSx/>
+            {/* <TableCell/> */}
+          </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        This is a Food Cart
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        You can invite User here
+      <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }} >
+              <div classname="Dashboard-box">
+                <h1 style={{ color: 'red', fontSize: 15, fontWeight: 'bold' }}>Dashboard</h1>
+                <h2 style={{ fontWeight: 'bold' }}>Your FoodCart</h2>
+              </div>
+              <div className="btn-one">
+                <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2, marginLeft: 400 }} onClick={()=>{handleClickedd()}}>Add FoodItem</button>
+                {/* <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2 }} onClick={()=>{handleClick()}}>Add Restaurents</button> */}
+              </div>
+            </div>
+            <div style={{ backgroundColor: '#f8f8f8',display: 'flex', justifyContent: 'space-evenly' }}>
+            </div>
+            <br/>
+            <br/>
+                  <FoodcartDetails/>
+            {/* <TableCell/> */}
+          </div>
       </TabPanel>
       </div>
     </Box>

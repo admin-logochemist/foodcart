@@ -1,0 +1,38 @@
+.headings h1{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+#contact-form{
+    justify-content: center;
+    width: 400px;
+}
+.form-group{
+    padding: 10px;
+}
+.form-group label {
+    font-weight: bold;
+}
+/* .form-group input {
+    border: 1px solid black;
+}
+.form-group textarea{
+    border: 1px solid black;
+} */
+.CopyRight{
+    background-color: #d70000;
+    height: 30px;
+}
+.CopyRight h1{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.Form-div{
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-evenly;
+}
+.image img{
+    border-radius: 10%;
+}
