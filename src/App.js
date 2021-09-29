@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/home';
 import About from './pages/about';
 import Contact from './pages/contact';
@@ -12,7 +11,9 @@ import AddFoodCart from './pages/AddFoodCart';
 import AddFood from './pages/AddFood';
 import Restaurantbox from './pages/restaurant-box';
 import Dashboard from './Dashboard';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 function App() {
+  
 return (
     <Router>
     <Navbar />
@@ -23,7 +24,7 @@ return (
         <Route path='/signup' component={SignUp} />
         <Route path='/signin' component={SignIn} />
         <Route path='/addResturant' component={AddResturant} />
-        <Route path='/addfoodcart' component={AddFoodCart} />
+        <Route path='/addfoodcart/' component={AddFoodCart} />
         <Route path='/addfood' component={AddFood} />
         <Route path='/restaurantbox' component={Restaurantbox}/>
         <Route path='/dashboard' component={Dashboard}/>

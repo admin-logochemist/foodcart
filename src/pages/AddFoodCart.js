@@ -6,7 +6,7 @@ import { db, projectStorage} from "../firebase";
 function AddFoodCart() {
     const [email, setEmail] = useState("");
     const [ address,setAddress ] = useState("");
-    const [cartName, setCartName] = useState("");
+    const [resName, setResName] = useState("");
     const [phone, setPhone] = useState("");
     const [cusine, setCusine] = useState("");
     const [file, setFile] = useState("");
@@ -21,12 +21,13 @@ function AddFoodCart() {
         console.log(file)
     
     
-        db.collection("resturant").add(
+        db.collection("foodcart").add(
           {
-            cartName: cartName,
+            resName: resName,
             phone: phone,
             email: email,
             cusine: cusine,
+            address:address,
           }
         ).then(doc => {
           const uploadTask = projectStorage.ref(`/imaged/${__filename}`).put(file)
@@ -38,7 +39,7 @@ function AddFoodCart() {
               .then((url) => {
                 setFile(null);
                 setURL(url);
-                db.collection("resturant").doc(doc.id).set({
+                db.collection("foodcart").doc(doc.id).set({
                   postImage: url
                 }, { merge: true })
               })
@@ -58,7 +59,7 @@ function AddFoodCart() {
         <h1>Add FoodCart</h1>
         <form>
 
-<input value={cartName} type="text" placeholder="FoodCart Name" onChange={(e)=>setCartName(e.target.value)}/>
+<input value={resName} type="text" placeholder="FoodCart Name" onChange={(e)=>setResName(e.target.value)}/>
 <input value={phone} type="text" placeholder="Phone"onChange={(e)=>setPhone(e.target.value)}/>
 <input value={email} type="email" placeholder="Email"onChange={(e)=>setEmail(e.target.value)}/>
 <input value={address} type="text" placeholder="Address" onChange={(e)=>setAddress(e.target.value)}/>
