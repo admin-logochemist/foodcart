@@ -1,0 +1,21 @@
+.form-stripe{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.form-main{
+    width: 500px;
+}
+.input{
+    width: 500px;
+    height: 40px;
+}
+.label{
+    font-size: 18px;
+    font-weight: bold;
+}
+.Pay-with-card{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}

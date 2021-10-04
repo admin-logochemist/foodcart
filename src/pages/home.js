@@ -8,7 +8,7 @@ import "./home.css"
 import { AiOutlineApple } from "react-icons/ai";   
 import { FcAndroidOs } from "react-icons/fc";  
 import SearchField from 'react-search-field';   
- 
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 const Home = () => {
     function onChange(e) {
@@ -34,11 +34,25 @@ const Home = () => {
                             </span></h1>
                         <p className="font-link1" style={{ color: 'white', fontSize: 20, textAlign: 'center' }}>Discover the best food in town</p>
                         <div style={{}}>
-                            {/* <SearchField
-                                placeholder='Search item'
-                                onChange={onChange}
-                            /> */}
-                            <form className="form-search-bar" action="/" method="get">
+                           <GooglePlacesAutocomplete
+      apiKey="AIzaSyC-mxEG1ofmSnd8AfjkWrjHBLY-JsEDuFw"
+      placeholder="Search"
+      style={{
+        textInput: {
+          backgroundColor: "#eee",
+          borderRadius: 20,
+          fontWeight: "700",
+          marginTop: 7,
+        },
+        textInputContainer: {
+          backgroundColor: "#eee",
+          borderRadius: 50,
+          flexDirection: "row",
+          alignItems: "center",
+        },
+      }}
+    />
+                            {/* <form className="form-search-bar" action="/" method="get">
                                 <div style={{ paddingTop: 18, paddingRight: 11 }}>
                                     <label htmlFor="header-search">
                                         <span style={{ color: 'black', fontWeight: 'bold' }}></span>
@@ -52,7 +66,7 @@ const Home = () => {
                                     />
                                     <button style={{ width: 100, backgroundColor: 'black', color: 'white', height: 60, borderRadius: 10 }} type="submit">Search</button>
                                 </div>
-                            </form>
+                            </form> */}
                         </div>
                     </div>
                 </div>

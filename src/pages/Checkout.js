@@ -49,13 +49,7 @@ function Checkout() {
                         </span>
                         </h3>
                         
-                            <StripeCheckout
-                                token={onToken}
-                                name="Testing Foodport"
-                                currency="usd"
-                                amount={total*100}
-                                stripeKey="pk_test_51J5C8JLwMYFuVwcJpbQ11WOXgTvDiN8VHT0KkDG1R3OpRxGAZSmB072QxdrPVcKVeiebK9aOt10IHvOvfeUpfkoP00OqXNDT48"
-                            />
+                        <Button role="Link" onClick={() => createCheckout()}> Proceed To CheckOut</Button>
                         </>
                     )}
                 </div>

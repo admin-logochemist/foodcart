@@ -18,7 +18,7 @@ const ResturantInfo = ({obj}) => {
   return (
     <div onClick={openResturant}>
       {console.log('óbj', obj)}
-      <Card style={{marginRight:'10px' ,cursor:'pointer'}}>
+      <Card style={{    margin: 10,cursor: 'pointer',width: 300}}>
         <img top width="100%" src={obj?.postImage} alt="Card image cap" />
         <CardBody>
         <CardTitle tag="h4">{obj?.resName}</CardTitle>
