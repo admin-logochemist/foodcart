@@ -33,13 +33,14 @@ function SignIn(props) {
           dispatch(login({
             email:userAuth.user.email,
             uid:userAuth.user.uid,
-            displayName:userAuth.user.displayName
-          }))
+            displayName:userAuth.user.displayName,
+            phone:userAuth.user.phoneNumber
+          }))             
         })
         
       }
       function handleClick() {
-        history.push("/SignUp");
+        history.push("/dashboard");
       }
     return (
               <div>
@@ -65,7 +66,7 @@ function SignIn(props) {
             </div>
         </div>
         <div className="copyright">
-                <h1 style={{ fontSize: 20,  }}>Copyright 2021.All rights reserved.</h1>
+                <h1 style={{ fontSize: 20,  }}>Copyright 2020.All rights reserved.</h1>
         </div>
         </div>
     )

@@ -4,7 +4,8 @@ import "./AddResturant.css";
 import { useHistory } from 'react-router';
 // import { collection, addDoc } from "firebase/firestore"; 
 import { db, projectStorage} from "../firebase";
-
+import {useSelector} from 'react-redux';
+import { selectUser } from '../features/UserSlice';
 function AddResturant() {
     const [email, setEmail] = useState("");
     const [ address,setAddress ] = useState("");
@@ -14,7 +15,10 @@ function AddResturant() {
     const [file, setFile] = useState("");
     const [url, setURL] = useState("");
     const [type, setType] = useState("");
-    const filePickerRef = useRef(null)
+   const user = useSelector(selectUser)
+  const useremail=user.email;
+    const filePickerRef = useRef(null);
+    const history = useHistory();
     const addImagetoPost = function (e) {
         setFile(e.target.files[0]);
     
@@ -27,6 +31,7 @@ function AddResturant() {
     
         db.collection("resturant").add(
           {
+            user:useremail,
             resName: resName,
             phone: phone,
             email: email,
@@ -50,9 +55,10 @@ function AddResturant() {
               })
     
           })
-    
+          history.push('/dashboard')
           // { file && <ProgressBar file={file} setFile={setFile} /> }
         }
+        
         )
        
     

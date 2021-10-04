@@ -11,7 +11,9 @@ import AddFoodCart from './pages/AddFoodCart';
 import AddFood from './pages/AddFood';
 import Restaurantbox from './pages/restaurant-box';
 import Dashboard from './Dashboard';
+import Checkout from './pages/Checkout';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import stripe from './pages/stripe';
 function App() {
   
 return (
@@ -28,7 +30,8 @@ return (
         <Route path='/addfood' component={AddFood} />
         <Route path='/restaurantbox' component={Restaurantbox}/>
         <Route path='/dashboard' component={Dashboard}/>
-
+        <Route path='/checkout' component={Checkout}/>
+        <Route path='/stripe' component={stripe}/>
     </Switch>
     </Router>
 );

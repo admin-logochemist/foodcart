@@ -55,7 +55,7 @@ export default function FullWidthTabs(item) {
   const getResturants=()=>{
     db.collection('resturant').where('type','==',"Big Chain Resturant" ).onSnapshot(snapshot=>(
      setResturants(snapshot.docs.map(doc=>({
-       data:doc.data()
+      _id: doc.id, ...doc.data()
      }
      ))) 
     ))
@@ -63,7 +63,7 @@ export default function FullWidthTabs(item) {
   const getFoodCart=()=>{
     db.collection('foodcart').onSnapshot(snapshot=>(
      setfoodcart(snapshot.docs.map(doc=>({
-       data:doc.data()
+      _id: doc.id, ...doc.data()
      }
      ))) 
     ))
@@ -71,7 +71,7 @@ export default function FullWidthTabs(item) {
   const getResturant=()=>{
     db.collection('resturant').where('type','==',"Local Resturant" ).onSnapshot(snapshot=>(
      setResturantb(snapshot.docs.map(doc=>({
-       data:doc.data()
+      _id: doc.id, ...doc.data()
      }
      ))) 
     ))
@@ -81,73 +81,8 @@ export default function FullWidthTabs(item) {
     getResturant();
     getFoodCart();
   }, [])
-  const renderFoodCart = () => {
-    if (resturant.length > 0) {
-      console.log("foodcart", foodcart);
-      async function trying(url) {
-        let image = await url.then(async (url) => { return url })
-        console.log('image', image)
-        return image.toString()
-      }
-      // console.log('state', img)
-      return foodcart.map((item, index) => {
-        var detail = []
-        console.log("ï", item)
-        for (const i in item) {
-          detail.push(item[i])
-        }
-        return detail.map((item) => {
-          // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
-          return (
-  
-            <ResturantInfo
-              img={item.postImage}
-              resname={item.resName}
-              phone={item.phone}
-              email={item.email}
-              cusine={item.cusine}
-              address={item.address}
-            />
-          );
-        })
-      })
-    }
-  };
   const renderResturants = () => {
-    if (resturant.length > 0) {
-      console.log("resturant", resturant);
-      async function trying(url) {
-        let image = await url.then(async (url) => { return url })
-        console.log('image', image)
-        return image.toString()
-      }
-      // console.log('state', img)
-      return resturant.map((item, index) => {
-        var detail = []
-        console.log("ï", item)
-        for (const i in item) {
-          detail.push(item[i])
-        }
-        return detail.map((item) => {
-          // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
-          return (
-  
-            <ResturantInfo
-              img={item.postImage}
-              resname={item.resName}
-              phone={item.phone}
-              email={item.email}
-              cusine={item.cusine}
-              address={item.address}
-            />
-          );
-        })
-      })
-    }
-  };
-  const renderResturant = () => {
-    if (resturant.length > 0) {
-      console.log("resturantb", resturantb);
+    if (resturantb && resturantb?.length) {
       async function trying(url) {
         let image = await url.then(async (url) => { return url })
         console.log('image', image)
@@ -155,25 +90,84 @@ export default function FullWidthTabs(item) {
       }
       // console.log('state', img)
       return resturantb.map((item, index) => {
-        var detail = []
-        console.log("ï", item)
-        for (const i in item) {
-          detail.push(item[i])
-        }
-        return detail.map((item) => {
-          // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
-          return (
-  
-            <ResturantInfo
-              img={item.postImage}
-              resname={item.resName}
-              phone={item.phone}
-              email={item.email}
-              cusine={item.cusine}
-              address={item.address}
-            />
-          );
-        })
+        return <ResturantInfo
+          obj={item}
+        />
+        // var detail = []
+        // console.log("ï", item)
+        // for (const i in item) {
+        //   detail.push(item[i])
+        // }
+        //   return detail.map((item) => {
+        //     // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
+        //     { console.log('resturant', resturant) }
+        //     return (
+
+        //       <BoxSx
+        //         resname={item.resName}
+        //       />
+        //     );
+        //   })
+      })
+    }
+  };
+  const renderResturant = () => {
+    if (resturant && resturant?.length) {
+      async function trying(url) {
+        let image = await url.then(async (url) => { return url })
+        console.log('image', image)
+        return image.toString()
+      }
+      // console.log('state', img)
+      return resturant.map((item, index) => {
+        return <ResturantInfo
+          obj={item}
+        />
+        // var detail = []
+        // console.log("ï", item)
+        // for (const i in item) {
+        //   detail.push(item[i])
+        // }
+        //   return detail.map((item) => {
+        //     // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
+        //     { console.log('resturant', resturant) }
+        //     return (
+
+        //       <BoxSx
+        //         resname={item.resName}
+        //       />
+        //     );
+        //   })
+      })
+    }
+  };
+  const renderFoodCart = () => {
+    if (foodcart && foodcart?.length) {
+      async function trying(url) {
+        let image = await url.then(async (url) => { return url })
+        console.log('image', image)
+        return image.toString()
+      }
+      // console.log('state', img)
+      return foodcart.map((item, index) => {
+        return <ResturantInfo
+          obj={item}
+        />
+        // var detail = []
+        // console.log("ï", item)
+        // for (const i in item) {
+        //   detail.push(item[i])
+        // }
+        //   return detail.map((item) => {
+        //     // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
+        //     { console.log('resturant', resturant) }
+        //     return (
+
+        //       <BoxSx
+        //         resname={item.resName}
+        //       />
+        //     );
+        //   })
       })
     }
   };

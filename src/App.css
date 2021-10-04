@@ -128,7 +128,7 @@ footer .btn-1 {
 footer {
   background: #000;
   padding: 50px 0px;
-
+  
   display: flex;
   align-items: center;
 }
@@ -197,7 +197,9 @@ footer {
 }
 .headings {
   color: #d70005 !important;
-  font-size: 2px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 15px;
 }
 .footerlink {
   background-color: white;
@@ -266,6 +268,17 @@ footer .social-icon li a {
   margin-right: 0;
   border-radius: 100%;
   color: black;
+}
+.left{
+  text-align:left;
+}
+.left a:hover{
+  color: red;
+}
+.social-icons-new{
+  display: flex;
+  justify-content: space-evenly;
+  color: #d70000;
 }
 
 

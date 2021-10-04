@@ -1,11 +1,20 @@
 import React from 'react'
 import "./FoodResults.css"
+import { useDispatch } from 'react-redux';
+import { addToBasket } from '../features/BasketSlice';
 
-
-import burger from './pic1.jpg';
 function FoodResults({
-    img,foodtype,title,description,star,price,total
-}) {
+    img,foodtype,title,description,price
+}) 
+
+{
+const dispatch=useDispatch();
+const addItemsToBasket=()=>{
+const product={
+    img,foodtype,title,description,price
+}
+dispatch(addToBasket(product))
+}
     return (
         <div className="eventResults">
             <img src={img} alt=""/>
@@ -16,7 +25,7 @@ function FoodResults({
                     <h3>{title}</h3>
                     <p>------</p>
                     <p>{description}</p>
-
+<button onClick={addItemsToBasket}> Add To Basket</button>
         
 
                 </div>                  

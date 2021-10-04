@@ -1,7 +1,17 @@
 import React from 'react';
-import { FaBeer } from 'react-icons/fa';
+import { AiFillFacebook } from "react-icons/ai";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { AiOutlineGooglePlus } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
+import { Link, useHistory } from "react-router-dom";
+
+
 
 const Footer = () => {
+  const history= useHistory()
+  function iconClick() {
+    history.push('/facebook')
+  }
   return (
     
     <div>
@@ -16,10 +26,12 @@ const Footer = () => {
               <p className="mt-2">
               Are you hungry?<br/> Did you have a long and stressful day? Interested in getting a cheesy pizza delivered to your office or looking to avoid the weekly shop? Then FoodPort is the right destination for you! FoodPort offers you a long and detailed list of the best restaurants and shops near you to help make your everyday easier.
                 </p>
-                {/* <i class="fa fa-facebook iconstyle" aria-hidden="true"></i>
-                <i class="fa fa-twitter iconstyle"  aria-hidden="true"></i>
-                <i class="fa fa-google-plus iconstyle" aria-hidden="true"></i>
-                <i class="fa fa-linkedin iconstyle" aria-hidden="true"></i> */}           
+                  <div className="social-icons-new">
+                  <AiFillFacebook onClick={() => iconClick() }/>
+                  <AiFillTwitterCircle/>
+                  <AiOutlineGooglePlus/>
+                  <AiFillLinkedin/>
+                  </div>
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
               <h5 className="headings">ABOUT</h5>
@@ -132,7 +144,6 @@ const Footer = () => {
                   </div>
                   </div>
                 </li>
-
                 <li>
                   <div className="d-flex ">
                   <div className="divlength mr-3">

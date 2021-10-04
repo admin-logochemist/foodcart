@@ -1,6 +1,9 @@
+.font-home{
+    font-family: 'Acme', sans-serif;
+}
 .mobile-image{
-    width: 400px;
-    height: 400px;
+    width: 550px;
+    height: 500px;
 }
 .testimonials{ 
     padding: 20px;
@@ -17,14 +20,21 @@
     margin: 15px;
     background-color: white;
     text-align: center;
-    width: 25%;
+    width: 23%;
     border-radius: 10px;
     float: left;
     padding: 20px;
-    height: 500px;
+    height: 380px;
 }
 .Download-the-App{
     display: block;
+}
+.Download-the-App h1{
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: black;
+}
+.Download-the-App p{
+    color: white;
 }
 .btn-mobile{
     margin: 2px;
@@ -32,6 +42,7 @@
     background-color: black;
     color: white;
     border-radius: 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 .form-search-bar{
     background-color: red;
@@ -49,10 +60,30 @@
 }
 .green h1{
     padding-top: 15px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
 }
+.green p{
+    font-size: 13px;
+}
 @media only screen and (max-width: 1200px) {
+    *{
+        overflow-x: clip;
+    }
+    .Mobile-image-sec{
+        width: 300px;
+        margin-top: 100px;
+        top: -50px;
+        height: 200px;
+    }
+    .Red-section {
+        background-color: red;
+        height: 80vh;
+    }
+    .mobile-image{
+        width: 300px;
+        height: 300px;
+    }
     .testimonials{
         width: 400px;
         display: flex;
@@ -72,9 +103,11 @@
    }
    .Download-the-App h1 {
         padding: 15px;
+        color: black;
    }
    .Download-the-App p{
     padding: 15px;
+    color: white;
    }
    .btn-mobile{ 
        margin-left: 25px;
@@ -84,9 +117,12 @@
        height: 150px;
        border-bottom: 150px solid black;
        border-left: 120px solid transparent;
+       margin-right: 50px !important;
    }
    .Imput-Search{
-        margin-right: 20px !important;
+        /* margin-right: 20px !important; */
+        /* margin-right: 20px; */
+        width: 170px;
    }
    .MuiTab-root{
     max-width: 125px!important;
@@ -97,4 +133,169 @@
     border-bottom: 107px solid black;
     border-left: 120px solid transparent;
 }
+}
+.Red-section {
+    background-color: red;
+}
+.Red-section-sub{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.Mobile-image-sec {
+    position: relative;
+    top: -100px;
+    height: 298px;
+}.font-home{
+    font-family: 'Acme', sans-serif;
+}
+.mobile-image{
+    width: 550px;
+    height: 500px;
+}
+.testimonials{ 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.testimonial-name{
+    font-size: 20px;
+    padding: 20px;
+    font-weight: bold;
+}
+.white-thing {
+    margin: 15px;
+    background-color: white;
+    text-align: center;
+    width: 23%;
+    border-radius: 10px;
+    float: left;
+    padding: 20px;
+    height: 380px;
+}
+.Download-the-App{
+    display: block;
+}
+.Download-the-App h1{
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: black;
+}
+.Download-the-App p{
+    color: white;
+}
+.btn-mobile{
+    margin: 2px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+.form-search-bar{
+    background-color: red;
+    width: 550px;
+    height: 100px;
+    border-bottom: 100px solid black;
+    border-left: 120px solid transparent;
+    display: flex;
+    flex-wrap: wrap;
+}
+.Imput-Search{
+    width: 240px;
+    height: 60px;
+    border-radius: 10px;
+}
+.green h1{
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.green p{
+    font-size: 13px;
+}
+@media only screen and (max-width: 1200px) {
+    *{
+        overflow-x: clip;
+    }
+    .Mobile-image-sec{
+        width: 300px;
+        margin-top: 100px;
+        top: -50px;
+        height: 200px;
+    }
+    .Red-section {
+        background-color: red;
+        height: 80vh;
+    }
+    .mobile-image{
+        width: 300px;
+        height: 300px;
+    }
+    .testimonials{
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+    }
+   .green h1{
+       padding-top: 20px;
+       font-size: 20px;
+       font-weight: bold;
+   }
+   .green p{
+       font-size: 13px;
+   }
+   .white-thing{
+       width: 300px;
+       height: 400px;
+   }
+   .Download-the-App h1 {
+        padding: 15px;
+        color: black;
+   }
+   .Download-the-App p{
+    padding: 15px;
+    color: white;
+   }
+   .btn-mobile{ 
+       margin-left: 25px;
+   }
+   .form-search-bar{
+       width: 380px;
+       height: 150px;
+       border-bottom: 150px solid black;
+       border-left: 120px solid transparent;
+       margin-right: 50px !important;
+   }
+   .Imput-Search{
+        /* margin-right: 20px !important; */
+        /* margin-right: 20px; */
+        width: 170px;
+   }
+   .MuiTab-root{
+    max-width: 125px!important;
+  }
+  .form-search-bar {
+    width: 550px;
+    height: 78px;
+    border-bottom: 107px solid black;
+    border-left: 120px solid transparent;
+}
+}
+.Red-section {
+    background-color: red;
+}
+.Red-section-sub{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.Mobile-image-sec {
+    position: relative;
+    top: -100px;
+    height: 298px;
 }

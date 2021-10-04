@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import { Button } from '@material-ui/core'
 import "./AddFoodCart.css";
-
+import {useSelector} from 'react-redux';
+import { selectUser } from '../features/UserSlice';
 import { db, projectStorage} from "../firebase";
+import { useHistory } from 'react-router';
 function AddFoodCart() {
     const [email, setEmail] = useState("");
     const [ address,setAddress ] = useState("");
@@ -11,6 +13,9 @@ function AddFoodCart() {
     const [cusine, setCusine] = useState("");
     const [file, setFile] = useState("");
     const [url, setURL] = useState("");
+    const user = useSelector(selectUser)
+const useremail=user?.email
+const history=useHistory();
     const addImagetoPost = function (e) {
         setFile(e.target.files[0]);
     
@@ -23,6 +28,7 @@ function AddFoodCart() {
     
         db.collection("foodcart").add(
           {
+            user:useremail,
             resName: resName,
             phone: phone,
             email: email,
@@ -45,7 +51,7 @@ function AddFoodCart() {
               })
     
           })
-    
+          history.push('/dashboard')
           // { file && <ProgressBar file={file} setFile={setFile} /> }
         }
         )

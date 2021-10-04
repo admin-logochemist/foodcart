@@ -8,20 +8,21 @@ NavBtn,
 NavBtnLink,
 NavLogo,
 } from './NavbarElements';
-import { Avatar } from '@material-ui/core';
 import { useSelector,useDispatch } from 'react-redux';
+import "./NavbarElements.css"
 import { logout, selectUser } from '../../features/UserSlice';
 import { auth } from '../../firebase';
 import logo from '../../images/logo.png'
 import { Link, useHistory } from "react-router-dom";
 import Badge from "@material-ui/core/Badge";
-import Home from '../../pages/home';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { selectItems } from '../../features/BasketSlice';
 const Navbar = () => {
     const user =useSelector(selectUser);
     const [itemCount, setItemCount] = React.useState(0);
     const history=useHistory();
     const  dispatch = useDispatch();
+    const items=useSelector(selectItems)
     const signOut=()=>{
         auth.signOut().then(()=>{
             dispatch(logout())
@@ -36,13 +37,17 @@ const Navbar = () => {
     return (
         <>
            <Nav style={{ cursor: 'pointer' }}>
-            <img src={logo} onClick={() => handleClick()}/>
-            <Bars />
+            <img className="logo-png" src={logo} onClick={() => handleClick()}/>
+            {/* <Bars /> */}
+            <div className="Mobile-layout">
+            <a href="/">HOME</a>
+            <a href="/contact">CONTACT</a>
+            <a href="/signin">LOGIN</a>
+            </div>
             <NavMenu>
                 <NavLink to="/" activeStyle>
                     HOME
                 </NavLink>
-                
                 <NavLink to="/contact" activeStyle>
                     CONTACT
                 </NavLink>
@@ -59,10 +64,10 @@ const Navbar = () => {
                      }} onClick={() => handletheClick()}>BECOME A PARTNER</button>
                     <Badge color="secondary" badgeContent={itemCount}>
                         <div style={{ color: '#d70000', marginLeft: 10 }}>
-                        <ShoppingCartIcon />{" "}
+                        <ShoppingCartIcon  onClick={()=>{history.push('Checkout')}}/>
+                        {items.length}
                         </div>
                     </Badge>
-                {/* <Avatar onClick={signOut} src={user?.photoUrl}/> */}
             </NavMenu> 
            </Nav> 
         </>

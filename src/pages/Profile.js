@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import { withRouter, Link } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
 import { db } from "../firebase";
-
+import { useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import test1 from '../images/test1.png'
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { selectUser } from "../features/UserSlice";
 
 
 const drawerWidth = 240;
@@ -43,49 +44,29 @@ const useStyles = makeStyles((theme) => ({
 
 const Profile = (props) => {
   const classes = useStyles()
-
-  const [eventP, setEventP] = useState([]);
-  //   const { loggedInUser, userPlans } = useSelector((state) => state);
-  const getEventP = () => {
-   
-
-    db.collection("user").onSnapshot(snapshot => (
-      setEventP(snapshot.docs.map(doc => (
-        {
-
-          //   id:doc.id,
-          data: doc.data()
-        }
-      )))
-    ))
-
-  };
-  useEffect(() => {
-    getEventP();
-  }, []);
-
-
+   const user= useSelector(selectUser)
+   console.log(user)
   return (
+ 
     <div className={classes.root}>
       <main className={classes.content} style={{}}>
         <Grid item >
           <div className={classes.iconsize} >
-            
-            {eventP.map((item, index) => {
-              return (
+         
+          
+              
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
               <div>
               <img style={{ borderRadius: '50%', height: 300 }} src={test1}/>
             </div>
             <div className={classes.con}>
-            <h2 style={{ }}>{item.data.name}</h2>
+            <h2 style={{ }}>{user?.displayName}</h2>
                   
                     <p></p>
 
-                    <p style={{  }}>Email: {item.data.email}</p>
-                    <p>Phone No: {item.data.phone}</p>
-                    <Button variant="outlined" color="primary" >Edit Profile</Button>
+                    <p>Email:{user?.email}</p>
+                   
 
             </div>
                  
@@ -95,8 +76,8 @@ const Profile = (props) => {
                     
                   </div>
                 </div>
-              )
-            })}
+              
+       
 
           </div>
         </Grid>
