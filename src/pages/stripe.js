@@ -1,52 +1,109 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import "./stripe.css"
-import StripeCheckout from 'react-stripe-checkout';
-import image from '../images/signin.png'
-
-function stripe() {
-    const onToken = (token) => {
-        console.log(token)
+import { useSelector } from "react-redux";
+import { selectUser } from '../features/UserSlice'
+import { addToBasket, selectItems, selectTotal } from '../features/BasketSlice';
+import CheckoutProduct from './CheckoutProduct';
+import { CardElement,useElements, useStripe } from '@stripe/react-stripe-js';
+import Currency from 'react-currency-formatter';
+import Button from '@restart/ui/esm/Button';
+import axios from './axios'
+const Stripe=()=> {
+    const user= useSelector(selectUser)
+    const items=useSelector(selectItems)
+    const total=useSelector(selectTotal)
+    const stripe=useStripe()
+    const elements = useElements()
+    const [succeded, setSucceded] = useState(false)
+    const [processing, setProcessing] = useState("")
+    const [errors, setErrors] = useState(null)
+    const [disabled, setDisabled] = useState(null)
+    const [clientSecret, setClientSecret] = useState(true)
+    useEffect(() => {
+     const getClientSecret=async()=>{
+         const response = await axios({
+             method:'post',
+             url:`/payments/createTotal=${total}`
+         })
+         setClientSecret(response.data.clientSecret)
+     }
+     getClientSecret()
+    }, [items])
+    const handleSubmit=async(event)=>{
+        event.preventDefault()
+setProcessing(true)
+    }
+    const handleChange=event=>{
+        setDisabled(event.empty);
+        setErrors(event.errors ? event.errors.messege:"")
     }
     return (
-        <div className="Stripe">
-            <div className="form-stripe">
-                <form className="form-main" action="/action_page.php">
-                    <label className="label" for="fname">First Name</label>
-                    <input className="input" type="text" id="fname" name="firstname" placeholder="Your name.." />
+        <div className="payment">
+            <div className="payment__container">
+            <h1>Checkout({items.length}):</h1>
+                <div className="payment__section">
+              
+                    <div className="payment__title">
+                        <h3>Delivery Address</h3>
+                        <div className="payment__address">
+                            <p>{user?.email}</p>
+                            <p>London UK</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="payment__section">
+                    <div className="payment__title">
+                        <h3>Review Items in Delivery</h3>
+                        <div className="payment__items">
+                        {items && items?.length ? items.map((item, i) => {
+                            return <CheckoutProduct
+                                key={i}
+                                img={item?.img || ''}
+                                title={item?.title||''}
+                                price={item?.price||''}
+                                description={item?.description}
+                            />
+                        }
+                        ) : null}
+                        </div>
+                    </div>
+                </div>
+                <div className="payment__section">
+                    <div className="payment__title">
+                        <h3>Payment Section</h3>
+                        <div className="payment__detail">
+                            <form onSubmit={handleSubmit}>
+                            <CardElement onChange={handleChange}/>
+                            {items.length>0 && (
+                        <>
+                        <h5 className="total">Order Total({items.length}):
+                        <span>
+                            <Currency quantity={total} currency="USD"/>
+                        </span>
+                        <br/>
+                        <Button disabled={processing|| disabled||succeded}
+                        >
+                            <span>{processing?<p>Proccessing</p>:"Buy Now"}</span>
+                        </Button>
+                        </h5>
+                        
+                        {errors && <div>{errors}</div>}
+                        </>
+                      
+                    )}
+                            </form>
+                             
+                        </div>
+                    </div>
+                </div>
+                
 
-                    <label className="label" for="lname">Last Name</label>
-                    <input className="input" type="text" id="lname" name="lastname" placeholder="Your last name.." />
+           <div>
 
-                    <label className="label" for="country">Country</label>
-                    <input className="input" type="text" id="lname" name="lastname" placeholder="Your Country here.." />
-
-                    <label className="label" for="country">Street Address</label>
-                    <input className="input" type="text" id="lname" name="lastname" placeholder="Your Address here.." />
-
-                    <label className="label" for="country">State</label>
-                    <input className="input" type="text" id="lname" name="lastname" placeholder="Your State here.." />
-
-                    <label className="label" for="country">Phone No#</label>
-                    <input className="input" type="text" id="lname" name="lastname" placeholder="Your Phone here.." />
-
-                    <label className="label" for="country">Email</label>
-                    <input className="input" type="text" id="lname" name="lastname" placeholder="Your Email here.." />
-
-                </form>
+           </div>
             </div>
-            <br />
-            <div className="Pay-with-card">
-                <StripeCheckout
-                    token={onToken}
-                    name="FoodPort"
-                    image={image}
-                    currency="usd"
-                    amount="190909"
-                    stripeKey="pk_test_51J5C8JLwMYFuVwcJpbQ11WOXgTvDiN8VHT0KkDG1R3OpRxGAZSmB072QxdrPVcKVeiebK9aOt10IHvOvfeUpfkoP00OqXNDT48"
-                />
-            </div>
-
         </div>
     )
 }
-export default stripe
+
+export default Stripe

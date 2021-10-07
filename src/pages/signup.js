@@ -29,7 +29,7 @@ auth.createUserWithEmailAndPassword(email,password).then((userAuth)=>{
         }))
     })
 })
-history.push('./dashboard')
+history.push('./signin')
 
 db.collection('user').add(
     {

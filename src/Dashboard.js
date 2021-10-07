@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import "./Dashboard.css"
 import { login,logout } from './features/UserSlice'
 import { useDispatch } from 'react-redux';
-import Button from '@restart/ui/esm/Button';
+
 import { auth } from './firebase';
 function Dashboard() {
     const  dispatch = useDispatch();
@@ -16,7 +16,7 @@ function Dashboard() {
       const signOut=()=>{
         auth.signOut().then(()=>{
             dispatch(logout())
-            history.push('/')
+            history.push('/SignIn')
         })
        
     }

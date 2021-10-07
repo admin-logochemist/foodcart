@@ -36,11 +36,11 @@ const history=useHistory();
             address:address,
           }
         ).then(doc => {
-          const uploadTask = projectStorage.ref(`/imaged/${__filename}`).put(file)
+          const uploadTask = projectStorage.ref('imaged/' + file.name).put(file)
           uploadTask.on("state_changed", console.log, console.error, () => {
             projectStorage
               .ref("imaged")
-              .child(__filename)
+              .child(file.name)
               .getDownloadURL()
               .then((url) => {
                 setFile(null);
@@ -70,8 +70,8 @@ const history=useHistory();
 <input value={email} type="email" placeholder="Email"onChange={(e)=>setEmail(e.target.value)}/>
 <input value={address} type="text" placeholder="Address" onChange={(e)=>setAddress(e.target.value)}/>
 <input value={cusine} type="text" placeholder="Cusine" onChange={(e)=>setCusine(e.target.value)}/>
-<label for="file">CoverImage</label>
-<input onChange={addImagetoPost} type="file" />
+<label for="file" >CoverImage</label>
+<input onChange={addImagetoPost} type="file" id="file" name="datafile"/>
 
 
 

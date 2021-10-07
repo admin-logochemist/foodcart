@@ -4,7 +4,9 @@
 .font-link1 {
   font-family: 'Mukta', sans-serif;
 }
-
+*{
+margin: 0;
+}
 .font-link {
   font-family: 'Birthstone Bounce', cursive;
   font-weight: bold;

@@ -37,14 +37,14 @@ const history=useHistory()
         title: title,
         price: price,
         description: description,
-        _id: location.state?._id
+        _id:location.state?._id
       }
     ).then(doc => {
-      const uploadTask = projectStorage.ref(`/imaged/${__filename}`).put(file)
+      const uploadTask = projectStorage.ref(`/imaged/${file.name}`).put(file)
       uploadTask.on("state_changed", console.log, console.error, () => {
         projectStorage
           .ref("imaged")
-          .child(__filename)
+          .child(file.name)
           .getDownloadURL()
           .then((url) => {
             setFile(null);
@@ -69,7 +69,7 @@ const history=useHistory()
         <h1>Add Food</h1>
         <form>
           {console.log('params', params)}
-          {console.log('location', location.state)}
+          {console.log('location', location)}
 
           <input value={category} type="text" placeholder="Category" onChange={(e) => setCategory(e.target.value)} />
 
@@ -83,7 +83,7 @@ const history=useHistory()
           <input value={price} type="number" placeholder="Price" onChange={(e) => (setPrice(e.target.value))} />
           <textarea value={description} type="text" placeholder="Description" onChange={(e) => setDescription(e.target.value)} />
           <label for="file">Food Picture</label>
-          <input onChange={addImagetoPost} type="file" />
+          <input onChange={addImagetoPost} type="file" id="file" name="datafile" />
 
 
 

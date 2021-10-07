@@ -1,21 +1,25 @@
-.form-stripe{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.payment{
+    background-color: white;
 }
-.form-main{
-    width: 500px;
+.payment__container>h1{
+    text-align: center;
+    padding: 10px;
+    font-weight: 400;
+    background-color: whitesmoke;
+    border-bottom: 1px solid lightgray;
 }
-.input{
-    width: 500px;
-    height: 40px;
+ .payment__section{
+    
+     padding: 20px;
+  
+
+ }
+.payment__title{
+    flex: 0.2;
 }
-.label{
-    font-size: 18px;
-    font-weight: bold;
+.payment__address,.payment__items,.payment__details{
+    flex: 0.8;
 }
-.Pay-with-card{
-    display: flex;
-    justify-content: center;
-    height: 50px;
+.total{
+    padding-top: 10px;
 }

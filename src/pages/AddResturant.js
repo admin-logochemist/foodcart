@@ -40,11 +40,11 @@ function AddResturant() {
             type:type
           }
         ).then(doc => {
-          const uploadTask = projectStorage.ref(`/imaged/${__filename}`).put(file)
+          const uploadTask = projectStorage.ref('imaged/' + file.name).put(file)
           uploadTask.on("state_changed", console.log, console.error, () => {
             projectStorage
               .ref("imaged")
-              .child(__filename)
+              .child(file.name)
               .getDownloadURL()
               .then((url) => {
                 setFile(null);
@@ -84,7 +84,7 @@ function AddResturant() {
 
 </select>
 <label for="file">CoverImage</label>
-<input onChange={addImagetoPost} type="file" />
+<input onChange={addImagetoPost} type="file" id="file" name="datafile"/>
  
 
 

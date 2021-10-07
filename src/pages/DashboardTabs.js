@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import { login,logout } from '../features/UserSlice'
 import Box from '@material-ui/core/Box';
 import "./DashboardTabs.css";
 import { Link, useHistory } from "react-router-dom";
@@ -15,6 +16,7 @@ import TableCell from './RestaurantCard'
 import BoxSx from './RestaurentsDetails'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/UserSlice';
+import {useDispatch} from 'react-redux'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -68,12 +70,12 @@ export default function VerticalTabs({ name, email, phone, bname }) {
     ))
   };
   useEffect(() => {
-    if ('user')
-    {getResturants();}
-else {
-  getResturantss();
-}
-
+    if(user?.email){
+    getResturants()
+    }
+    else{
+      getResturantss()
+    }
   }, [user])
   const renderResturants = () => {
     if (resturant && resturant?.length) {
@@ -114,8 +116,9 @@ else {
     ))
   };
   useEffect(() => {
-    if ('user')
+    if (user?.email)
     {getFoodCart();}
+
 else {
   getFoodCarts();
 }

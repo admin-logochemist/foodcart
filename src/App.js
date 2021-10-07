@@ -12,26 +12,35 @@ import AddFood from './pages/AddFood';
 import Restaurantbox from './pages/restaurant-box';
 import Dashboard from './Dashboard';
 import Checkout from './pages/Checkout';
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import stripe from './pages/stripe';
+import { HashRouter as Router, Switch, Route} from "react-router-dom";
+import Stripe from './pages/Stripe';
+import {loadStripe} from '@stripe/stripe-js';
+import {Elements} from '@stripe/react-stripe-js'
 function App() {
-  
+    const promise=loadStripe('pk_test_51J5C8JLwMYFuVwcJpbQ11WOXgTvDiN8VHT0KkDG1R3OpRxGAZSmB072QxdrPVcKVeiebK9aOt10IHvOvfeUpfkoP00OqXNDT48')
+ const public_URL='food.demoapp-lc.com'
 return (
-    <Router>
+    <Router basename={process.env.public_URL}>
     <Navbar />
     <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/about' component={About} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/signup' component={SignUp} />
-        <Route path='/signin' component={SignIn} />
-        <Route path='/addResturant' component={AddResturant} />
-        <Route path='/addfoodcart/' component={AddFoodCart} />
-        <Route path='/addfood' component={AddFood} />
-        <Route path='/restaurantbox' component={Restaurantbox}/>
-        <Route path='/dashboard' component={Dashboard}/>
+        <Route exact path='/' exact component={Home} />
+        <Route exact path='/About' component={About} />
+        <Route exact path='/Contact' component={Contact} />
+        <Route exact path='/SignUp' component={SignUp} />
+        <Route exact path='/SignIn' component={SignIn} />
+        <Route  path='/addResturant' component={AddResturant} />
+        <Route  path='/addfoodcart/' component={AddFoodCart} />
+        <Route  path='/addfood' component={AddFood} />
+        <Route exact path='/restaurantbox' component={Restaurantbox}/>
+        <Route  path='/dashboard' component={Dashboard}/>
         <Route path='/checkout' component={Checkout}/>
-        <Route path='/stripe' component={stripe}/>
+        
+        <Route path='/Stripe'>
+       
+        <Elements stripe={promise}>
+            <Stripe/>
+        </Elements>
+        </Route>
     </Switch>
     </Router>
 );

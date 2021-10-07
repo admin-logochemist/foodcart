@@ -32,7 +32,7 @@ const Navbar = () => {
         history.push("/");
       }
       function handletheClick() {
-        history.push("/signup");
+        history.push("/SignUp");
       }
     return (
         <>
@@ -41,8 +41,8 @@ const Navbar = () => {
             {/* <Bars /> */}
             <div className="Mobile-layout">
             <a href="/">HOME</a>
-            <a href="/contact">CONTACT</a>
-            <a href="/signin">LOGIN</a>
+            <a href="/Contact">CONTACT</a>
+            <a href="/SignIn">LOGIN</a>
             </div>
             <NavMenu>
                 <NavLink to="/" activeStyle>

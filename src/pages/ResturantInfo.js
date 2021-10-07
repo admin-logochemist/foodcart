@@ -22,9 +22,9 @@ const ResturantInfo = ({obj}) => {
         <img top width="100%" src={obj?.postImage} alt="Card image cap" />
         <CardBody>
         <CardTitle tag="h4">{obj?.resName}</CardTitle>
-          <CardSubtitle  className="mb-2 text-muted">{obj?.cusine}</CardSubtitle>
+          {/* <CardSubtitle  className="mb-2 text-muted">{obj?.cusine}</CardSubtitle>
           <CardText>{obj?.email}</CardText>
-          <CardText>{obj?.phone}</CardText>
+          <CardText>{obj?.phone}</CardText> */}
           <CardText>{obj?.address}</CardText>
         </CardBody>
       </Card>
