@@ -15,7 +15,7 @@ function AddFood() {
   const [description, setDescription] = useState("");
   const [file, setFile] = useState("");
   const [url, setURL] = useState("");
-const history=useHistory()
+  const history = useHistory()
   let params = useParams()
   let location = useLocation()
 
@@ -35,9 +35,9 @@ const history=useHistory()
         category: category,
         type: type,
         title: title,
-        price: price,
+        price: parseInt(price),
         description: description,
-        _id:location.state?._id
+        _id: location.state?._id
       }
     ).then(doc => {
       const uploadTask = projectStorage.ref(`/imaged/${file.name}`).put(file)

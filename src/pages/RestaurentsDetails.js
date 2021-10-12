@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 function RestaurentsDetails({ obj }) {
   const history=useHistory()
   function handleClickedd() {
-    history.push("/addFood", obj);
+    history.push({pathname: "/addFood", state: obj});
   }
   return (
     <div className="A-Box">

@@ -1,7 +1,13 @@
 .Dashboard-Tabs{
-    background-color: #f8f8f8;
-    padding: 60px;
+   background-color: whitesmoke;
+   
     color: black;
+}
+.MuiTabs-vertical {
+    flex-direction: column;
+    background: whitesmoke;
+    color: black;
+    font-weight: 900;
 }
 .Dashboard-box h1{
     color: Red;
@@ -28,13 +34,15 @@
     justify-content: space-between;
     padding-left: 20px;
 }
-.A-Box{
+.A-Box {
     display: flex;
     justify-content: space-between;
-    background-color: whitesmoke;
-    height: 15vh;
+    height: 16vh;
+    border: 2px solid whitesmoke;
     width: 800px;
 }
+
+
 .Box-headings p{
     padding: 35px;
 }

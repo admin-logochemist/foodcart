@@ -16,6 +16,7 @@ import { HashRouter as Router, Switch, Route} from "react-router-dom";
 import Stripe from './pages/Stripe';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js'
+import Orders from './pages/Orders';
 function App() {
     const promise=loadStripe('pk_test_51J5C8JLwMYFuVwcJpbQ11WOXgTvDiN8VHT0KkDG1R3OpRxGAZSmB072QxdrPVcKVeiebK9aOt10IHvOvfeUpfkoP00OqXNDT48')
  const public_URL='food.demoapp-lc.com'
@@ -34,7 +35,7 @@ return (
         <Route exact path='/restaurantbox' component={Restaurantbox}/>
         <Route  path='/dashboard' component={Dashboard}/>
         <Route path='/checkout' component={Checkout}/>
-        
+        <Route path='/orders' component={Orders}/>
         <Route path='/Stripe'>
        
         <Elements stripe={promise}>

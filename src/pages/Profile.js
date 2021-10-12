@@ -56,25 +56,23 @@ const Profile = (props) => {
           
               
                 <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap-reverse' }}>
               <div>
-              <img style={{ borderRadius: '50%', height: 300 }} src={test1}/>
+              <img style={{ borderRadius: '50%', height: 300,marginleft: '-37px' }} src={test1}/>
             </div>
             <div className={classes.con}>
-            <h2 style={{ }}>{user?.displayName}</h2>
+            <h2 style={{ textAlign:'center'}}>{user?.displayName}</h2>
                   
                     <p></p>
 
-                    <p>Email:{user?.email}</p>
+                    <p style={{ textAlign:'center'}}>Email:{user?.email}</p>
                    
 
             </div>
                  
                     {/* <p>Invite Link: <a style={{ fontStyle: 'italic', fontSize: 14 }} href={`http://member.mshoppingworld.com/register/${loggedInUser.user.userCode}`}>http://member.mshoppingworld.com/register/${loggedInUser.user.userCode}</a></p> */}
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    
-                  </div>
+          
                 </div>
               
        

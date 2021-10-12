@@ -21,15 +21,16 @@ function Dashboard() {
        
     }
     return (
-        <div>
-        <div className="Main-div">
+     
+<div>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
             <div className="headings">
                 <h1>Dashboard</h1>
-                
+
             </div>
-            
+
             <div className="btn">
-            <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2, marginLeft: 300 }} onClick={signOut}>Logout</button>
+            <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15 }} onClick={signOut}>Logout</button>
             </div>
         </div>
         <VerticalTabs />

@@ -3,7 +3,7 @@ import React from 'react'
 import { Image } from 'react-bootstrap'
 import {useDispatch} from 'react-redux'
 import { removeFromBasket } from '../features/BasketSlice'
-function CheckoutProduct({img,foodtype,title,description,price,_id}) {
+function CheckoutProduct({img,title,description,price,_id}) {
     const dispatch=useDispatch()
 const removeItemFromBasket=()=>{
 dispatch(removeFromBasket({_id}))
@@ -16,7 +16,7 @@ dispatch(removeFromBasket({_id}))
             
             <div class="eventr__info">
                 <div class="event__infoTop">
-                    <p>{foodtype}</p>
+                   
                     <h3>{title}</h3>
                     <p>------</p>
                     <p>{description}</p>

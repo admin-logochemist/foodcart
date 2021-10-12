@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import { login,logout } from '../features/UserSlice'
+import { login, logout } from '../features/UserSlice'
 import Box from '@material-ui/core/Box';
 import "./DashboardTabs.css";
 import { Link, useHistory } from "react-router-dom";
@@ -16,7 +16,9 @@ import TableCell from './RestaurantCard'
 import BoxSx from './RestaurentsDetails'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/UserSlice';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
+import Orders from './Orders';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -54,7 +56,7 @@ export default function VerticalTabs({ name, email, phone, bname }) {
   const [value, setValue] = React.useState(0);
   const [users, setUsers] = useState("")
   const history = useHistory();
-  const user=useSelector(selectUser)
+  const user = useSelector(selectUser)
   const [resturant, setResturants] = useState([]);
   const [foodcart, setFoodCart] = useState([]);
   const getResturantss = () => {
@@ -64,16 +66,16 @@ export default function VerticalTabs({ name, email, phone, bname }) {
     ))
   };
   const getResturants = () => {
-    db.collection('resturant').where('user','==',user?.email).onSnapshot(snapshot => (
+    db.collection('resturant').where('user', '==', user?.email).onSnapshot(snapshot => (
       setResturants(snapshot.docs.map(doc => ({ _id: doc.id, ...doc.data() }
       )))
     ))
   };
   useEffect(() => {
-    if(user?.email){
-    getResturants()
+    if (user?.email) {
+      getResturants()
     }
-    else{
+    else {
       getResturantss()
     }
   }, [user])
@@ -89,15 +91,6 @@ export default function VerticalTabs({ name, email, phone, bname }) {
         return <BoxSx
           obj={item}
         />
-        // var detail = []
-        // console.log("ï", item)
-        // for (const i in item) {
-        //   detail.push(item[i])
-        // }
-        //   return detail.map((item) => {
-        //     // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
-        //     { console.log('resturant', resturant) }
-        //     return (
 
 
       })
@@ -110,18 +103,17 @@ export default function VerticalTabs({ name, email, phone, bname }) {
     ))
   };
   const getFoodCart = () => {
-    db.collection('foodcart').where('user','==',user?.email).onSnapshot(snapshot => (
+    db.collection('foodcart').where('user', '==', user?.email).onSnapshot(snapshot => (
       setFoodCart(snapshot.docs.map(doc => ({ _id: doc.id, ...doc.data() }
       )))
     ))
   };
   useEffect(() => {
-    if (user?.email)
-    {getFoodCart();}
+    if (user?.email) { getFoodCart(); }
 
-else {
-  getFoodCarts();
-}
+    else {
+      getFoodCarts();
+    }
 
   }, [user])
   const renderFoodCart = () => {
@@ -136,21 +128,7 @@ else {
         return <FoodcartDetails
           obj={item}
         />
-        // var detail = []
-        // console.log("ï", item)
-        // for (const i in item) {
-        //   detail.push(item[i])
-        // }
-        //   return detail.map((item) => {
-        //     // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
-        //     { console.log('resturant', resturant) }
-        //     return (
 
-        //       <BoxSx
-        //         resname={item.resName}
-        //       />
-        //     );
-        //   })
       })
     }
   };
@@ -198,55 +176,39 @@ else {
           <Tab label="Profile" {...a11yProps(1)} />
           <Tab label="Restaurants" {...a11yProps(2)} />
           <Tab label="Foodcart" {...a11yProps(3)} />
+          <Tab label="Orders" {...a11yProps(4)} />
         </Tabs>
         <div style={{}}>
           <TabPanel value={value} index={0}>
             <div >
-              <div style={{ display: 'flex', justifyContent: 'space-between' }} >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }} >
                 <div classname="Dashboard-box">
                   <h1 style={{ color: 'red', fontSize: 15, fontWeight: 'bold' }}>Dashboard</h1>
                   <h2 style={{ fontWeight: 'bold' }}>Welcome to Dashboard</h2>
                 </div>
                 <div className="btn-one">
-                  <button style={{ color: 'white', backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2, marginLeft: 300 }} onClick={() => { handleClicked() }}>Add FoodCart</button>
-                  <button style={{ color: 'white', backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2 }} onClick={() => { handleClick() }}>Add Restaurents</button>
+                  <button style={{ color: 'white', backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 10 }} onClick={() => { handleClicked() }}>Add FoodCart</button>
+                  <button style={{ color: 'white', backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 10 }} onClick={() => { handleClick() }}>Add Restaurents</button>
                 </div>
               </div>
-              <div style={{ backgroundColor: '#f8f8f8', display: 'flex', justifyContent: 'space-evenly' }}>
-                {/* <div style={{  }}>
-              <p style={{ fontWeight: 'bold', padding: 30 }}>Advance filters</p>
-            </div> */}
-                {/* <div>
-            <form style={{ padding: 25 }}>
-                  <label>
-                    Date
-                    <input type="text" name="name" />
-                  </label>
-                </form>
-            </div> */}
-                {/* <div>
-            <form style={{ padding: 25 }}>
-                  <label>
-                    Type
-                    <input type="text" name="name" />
-                  </label>
-                </form>
-              </div> */}
+              <div style={{     display: 'flex',justifyContent: 'space-evenly',alignItems: 'center',flexWrap: 'wrap-reverse' }}>
+
               </div>
             </div>
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Profile />
           </TabPanel>
+
           <TabPanel value={value} index={2}>
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }} >
+              <div>
                 <div classname="Dashboard-box">
                   <h1 style={{ color: 'red', fontSize: 15, fontWeight: 'bold' }}>Dashboard</h1>
                   <h2 style={{ fontWeight: 'bold' }}>Your Restaurants</h2>
                 </div>
                 <div className="btn-one">
-                 
+
                   {/* <button style={{ color: 'white',backgroundColor: '#d70000', border: 'hidden', padding: 15, margin: 2 }} onClick={()=>{handleClick()}}>Add Restaurents</button> */}
                 </div>
               </div>
@@ -274,8 +236,11 @@ else {
               <br />
               <br />
               {renderFoodCart()}
-              {/* <TableCell/> */}
+
             </div>
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            <Orders />
           </TabPanel>
         </div>
       </Box>

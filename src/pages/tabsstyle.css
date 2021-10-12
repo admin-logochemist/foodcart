@@ -5,6 +5,8 @@
 .Tabpanel12 {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 .MuiAppBar-colorPrimary {
     color: black!important;

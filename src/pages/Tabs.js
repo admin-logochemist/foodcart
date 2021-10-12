@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@material-ui/core/styles';
@@ -52,28 +52,28 @@ export default function FullWidthTabs(item) {
   const [resturant, setResturants] = useState([]);
   const [resturantb, setResturantb] = useState([]);
   const [foodcart, setfoodcart] = useState([]);
-  const getResturants=()=>{
-    db.collection('resturant').where('type','==',"Big Chain Resturant" ).onSnapshot(snapshot=>(
-     setResturants(snapshot.docs.map(doc=>({
-      _id: doc.id, ...doc.data()
-     }
-     ))) 
+  const getResturants = () => {
+    db.collection('resturant').where('type', '==', "Big Chain Resturant").onSnapshot(snapshot => (
+      setResturants(snapshot.docs.map(doc => ({
+        _id: doc.id, ...doc.data()
+      }
+      )))
     ))
   };
-  const getFoodCart=()=>{
-    db.collection('foodcart').onSnapshot(snapshot=>(
-     setfoodcart(snapshot.docs.map(doc=>({
-      _id: doc.id, ...doc.data()
-     }
-     ))) 
+  const getFoodCart = () => {
+    db.collection('foodcart').onSnapshot(snapshot => (
+      setfoodcart(snapshot.docs.map(doc => ({
+        _id: doc.id, ...doc.data()
+      }
+      )))
     ))
   };
-  const getResturant=()=>{
-    db.collection('resturant').where('type','==',"Local Resturant" ).onSnapshot(snapshot=>(
-     setResturantb(snapshot.docs.map(doc=>({
-      _id: doc.id, ...doc.data()
-     }
-     ))) 
+  const getResturant = () => {
+    db.collection('resturant').where('type', '==', "Local Resturant").onSnapshot(snapshot => (
+      setResturantb(snapshot.docs.map(doc => ({
+        _id: doc.id, ...doc.data()
+      }
+      )))
     ))
   };
   useEffect(() => {
@@ -180,48 +180,48 @@ export default function FullWidthTabs(item) {
   };
 
   return (
-      <div className="tabs">
-    <Box sx={{ bgcolor: 'background.paper', width: '100%'}}>
-      <AppBar position="static">
-        <Tabs className="main-tabs"
-          value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="inherit"
-          variant="Width"
-          aria-label="full width tabs example"
-          centered
+    <div className="tabs">
+      <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
+        <AppBar position="static">
+          <Tabs className="main-tabs"
+            value={value}
+            onChange={handleChange}
+            indicatorColor="secondary"
+            textColor="inherit"
+            variant="Width"
+            aria-label="full width tabs example"
+            centered
+          >
+            <Tab className="labels" label="Food Trucks" {...a11yProps(0)} />
+            <Tab className="labels" label="Big Chain Restaurants" {...a11yProps(1)} />
+            <Tab className="labels" label="Local Restaurants" {...a11yProps(2)} />
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={value}
+          onChangeIndex={handleChangeIndex}
         >
-          <Tab className="labels" label="Food Trucks" {...a11yProps(0)} />
-          <Tab className="labels" label="Big Chain Restaurants" {...a11yProps(1)} />
-          <Tab className="labels" label="Local Restaurants" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-        <div className="Tabpanel12">
-            {renderFoodCart()}
-         
-         </div>
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-        <div className="Tabpanel12">
-            {renderResturants()}
-         
-         </div>
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-        <div className="Tabpanel12">
-          
-        {renderResturant()}
-         </div>
-        </TabPanel>
-      </SwipeableViews>
-    </Box>
+          <TabPanel value={value} index={0} dir={theme.direction}>
+            <div className="Tabpanel12">
+              {renderFoodCart()}
+
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={1} dir={theme.direction}>
+            <div className="Tabpanel12">
+              {renderResturants()}
+
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            <div className="Tabpanel12">
+
+              {renderResturant()}
+            </div>
+          </TabPanel>
+        </SwipeableViews>
+      </Box>
     </div>
   );
 }

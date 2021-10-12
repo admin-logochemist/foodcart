@@ -1,109 +1,163 @@
-import React,{useState,useEffect} from 'react'
-import "./stripe.css"
+import React, { useState, useEffect } from 'react';
+import './stripe.css'
 import { useSelector } from "react-redux";
+import CheckoutProduct from "./CheckoutProduct";
+import { Link, useHistory } from "react-router-dom";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import CurrencyFormat from "react-currency-format";
 import { selectUser } from '../features/UserSlice'
-import { addToBasket, selectItems, selectTotal } from '../features/BasketSlice';
-import CheckoutProduct from './CheckoutProduct';
-import { CardElement,useElements, useStripe } from '@stripe/react-stripe-js';
-import Currency from 'react-currency-formatter';
-import Button from '@restart/ui/esm/Button';
-import axios from './axios'
-const Stripe=()=> {
-    const user= useSelector(selectUser)
-    const items=useSelector(selectItems)
-    const total=useSelector(selectTotal)
-    const stripe=useStripe()
-    const elements = useElements()
-    const [succeded, setSucceded] = useState(false)
-    const [processing, setProcessing] = useState("")
-    const [errors, setErrors] = useState(null)
-    const [disabled, setDisabled] = useState(null)
-    const [clientSecret, setClientSecret] = useState(true)
+import {  selectItems, selectTotal } from '../features/BasketSlice';
+import axios from './axios';
+import { db } from "../firebase";
+
+const Stripe = () => {
+    const user = useSelector(selectUser)
+    const items = useSelector(selectItems)
+    const total = useSelector(selectTotal)
+    const basket = useSelector(selectItems)
+    const history = useHistory();
+    const stripe = useStripe();
+    const elements = useElements();
+
+    const [succeeded, setSucceeded] = useState(false);
+    const [processing, setProcessing] = useState("");
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(true);
+    const [clientSecret, setClientSecret] = useState(true);
+    const clientSecretS = (clientSecret).toString
     useEffect(() => {
-     const getClientSecret=async()=>{
-         const response = await axios({
-             method:'post',
-             url:`/payments/createTotal=${total}`
-         })
-         setClientSecret(response.data.clientSecret)
-     }
-     getClientSecret()
-    }, [items])
-    const handleSubmit=async(event)=>{
-        event.preventDefault()
-setProcessing(true)
+        // generate the special stripe secret which allows us to charge a customer
+        const getClientSecret = async () => {
+            const response = await axios({
+                method: 'post',
+                // Stripe expects the total in a currencies subunits
+                url: `/payments/create?total=${total}`
+            });
+            setClientSecret(response.data.clientSecret)
+        }
+
+        getClientSecret();
+    }, [basket])
+
+    console.log('THE SECRET IS >>>', clientSecret)
+    console.log('👱', user)
+
+    const handleSubmit = async (event) => {
+        // do all the fancy stripe stuff...
+        event.preventDefault();
+        setProcessing(true);
+
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement)
+            }
+        }).then(({ paymentIntent }) => {
+            // paymentIntent = payment confirmation
+
+            db
+              .collection('users')
+              .doc(user?.uid)
+              .collection('orders')
+              .doc(paymentIntent.id)
+              .set({
+                  basket: basket,
+                  amount: paymentIntent.amount,
+                  created: paymentIntent.created
+              })
+
+            setSucceeded(true);
+            setError(null)
+            setProcessing(false)
+
+          
+
+            history.replace('/orders')
+        })
+
     }
-    const handleChange=event=>{
+
+    const handleChange = event => {
+        // Listen for changes in the CardElement
+        // and display any errors as the customer types their card details
         setDisabled(event.empty);
-        setErrors(event.errors ? event.errors.messege:"")
+        setError(event.error ? event.error.message : "");
     }
+
     return (
-        <div className="payment">
-            <div className="payment__container">
-            <h1>Checkout({items.length}):</h1>
-                <div className="payment__section">
-              
-                    <div className="payment__title">
+        <div className='payment'>
+            <div className='payment__container'>
+                <h1>
+                    Checkout (
+                        <Link to="/checkout">{total} items</Link>
+                        )
+                </h1>
+
+
+                {/* Payment section - delivery address */}
+                <div className='payment__section'>
+                    <div className='payment__title'>
                         <h3>Delivery Address</h3>
-                        <div className="payment__address">
-                            <p>{user?.email}</p>
-                            <p>London UK</p>
-                        </div>
+                    </div>
+                    <div className='payment__address'>
+                        <p>{user?.email}</p>
+                        <p>123 React Lane</p>
+                        <p>Los Angeles, CA</p>
                     </div>
                 </div>
-                <div className="payment__section">
-                    <div className="payment__title">
-                        <h3>Review Items in Delivery</h3>
-                        <div className="payment__items">
-                        {items && items?.length ? items.map((item, i) => {
-                            return <CheckoutProduct
-                                key={i}
-                                img={item?.img || ''}
-                                title={item?.title||''}
-                                price={item?.price||''}
-                                description={item?.description}
+
+                {/* Payment section - Review Items */}
+                <div className='payment__section'>
+                    <div className='payment__title'>
+                        <h3>Review items and delivery</h3>
+                    </div>
+                    <div className='payment__items'>
+                        {items.map(item => (
+                            <CheckoutProduct
+                                id={item.id}
+                                title={item.title}
+                                img={item.img}
+                                price={item.price}
+                                rating={item.rating}
                             />
-                        }
-                        ) : null}
-                        </div>
+                        ))}
                     </div>
                 </div>
-                <div className="payment__section">
+            
+
+                {/* Payment section - Payment method */}
+                <div className='payment__section'>
                     <div className="payment__title">
-                        <h3>Payment Section</h3>
-                        <div className="payment__detail">
+                        <h3>Payment Method</h3>
+                    </div>
+                    <div className="payment__details">
+                            {/* Stripe magic will go */}
+
                             <form onSubmit={handleSubmit}>
-                            <CardElement onChange={handleChange}/>
-                            {items.length>0 && (
-                        <>
-                        <h5 className="total">Order Total({items.length}):
-                        <span>
-                            <Currency quantity={total} currency="USD"/>
-                        </span>
-                        <br/>
-                        <Button disabled={processing|| disabled||succeded}
-                        >
-                            <span>{processing?<p>Proccessing</p>:"Buy Now"}</span>
-                        </Button>
-                        </h5>
-                        
-                        {errors && <div>{errors}</div>}
-                        </>
-                      
-                    )}
+                                <CardElement onChange={handleChange}/>
+
+                                <div className='payment__priceContainer'>
+                                    <CurrencyFormat
+                                        renderText={(value) => (
+                                            <h3>Order Total: {value}</h3>
+                                        )}
+                                        decimalScale={2}
+                                        value={total}
+                                        displayType={"text"}
+                                        thousandSeparator={true}
+                                        prefix={"$"}
+                                    />
+                                    <button disabled={processing || disabled || succeeded}>
+                                        <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                                    </button>
+                                </div>
+
+                                  {/* Errors */}
+                                {error && <div>{error}</div>}
                             </form>
-                             
-                        </div>
                     </div>
                 </div>
-                
-
-           <div>
-
-           </div>
             </div>
         </div>
     )
 }
-
 export default Stripe
