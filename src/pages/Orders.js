@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../features/UserSlice'
 import Order from './Order'
 import { selectItems } from '../features/BasketSlice';
+import { Sidebars } from './Sidebars';
 
 function Orders() {
 const user = useSelector(selectUser);
@@ -30,6 +31,10 @@ const items = useSelector(selectItems)
   }, [user])
 
     return (
+        <div className="div">
+            <div>
+                <Sidebars/> 
+            </div>
         <div className='orders'>
             <h1>Your Orders</h1>
 
@@ -38,6 +43,7 @@ const items = useSelector(selectItems)
                     <Order order={order} />
                 ))}
             </div>
+        </div>
         </div>
     )
 }

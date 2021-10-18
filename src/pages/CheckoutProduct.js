@@ -3,6 +3,7 @@ import React from 'react'
 import { Image } from 'react-bootstrap'
 import {useDispatch} from 'react-redux'
 import { removeFromBasket } from '../features/BasketSlice'
+import "./Checkout.css"
 function CheckoutProduct({img,title,description,price,_id}) {
     const dispatch=useDispatch()
 const removeItemFromBasket=()=>{
@@ -17,9 +18,13 @@ dispatch(removeFromBasket({_id}))
             <div class="eventr__info">
                 <div class="event__infoTop">
                    
-                    <h3>{title}</h3>
+                    <h3 style={{
+                        fontWeight: 'bold'
+                    }}>{title}</h3>
                     <p>------</p>
-                    <p>{description}</p>
+                    <p style={{
+                        fontWeight: 'bold'
+                    }}>{description}</p>
 
         
 
@@ -29,7 +34,7 @@ dispatch(removeFromBasket({_id}))
                         
                     </div>
                     <div class="event__price">
-                        <Button color="success" onClick={removeItemFromBasket}>Remove Cart</Button>
+                        <Button className="btn-Remove-cart" color="success" onClick={removeItemFromBasket}>Remove Cart</Button>
                         <h3> 
                            $ {price}
                         </h3>

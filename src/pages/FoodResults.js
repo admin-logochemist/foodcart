@@ -4,46 +4,44 @@ import { useDispatch } from 'react-redux';
 import { addToBasket } from '../features/BasketSlice';
 
 function FoodResults({
-    img,title,description,price
-}) 
-
-{
-const dispatch=useDispatch();
-const addItemsToBasket=()=>{
-const product={
-    img,title,description,price
-}
-dispatch(addToBasket(product))
-}
+    img, title, description, price
+}) {
+    const dispatch = useDispatch();
+    const addItemsToBasket = () => {
+        const product = {
+            img, title, description, price
+        }
+        dispatch(addToBasket(product))
+    }
     return (
         <div className="eventResults">
-            <img src={img} alt=""/>
-            
+            <img src={img} alt="" />
+
             <div class="eventr__info">
                 <div class="event__infoTop">
-                    
+
                     <h3>{title}</h3>
                     <p>------</p>
                     <p>{description}</p>
-<button onClick={addItemsToBasket}> Add To Basket</button>
-        
+                    <button className="btn-Add" onClick={addItemsToBasket}> Add To Basket</button>
 
-                </div>                  
+
+                </div>
                 <div class="event__infoBottom">
                     <div class="event__stars">
-                        
+
                     </div>
                     <div class="event__price">
-                        <h3> 
-                           $ {price}
+                        <h3>
+                            $ {price}
                         </h3>
-                     
+
                     </div>
 
 
                 </div>
-                </div>     
-              </div>
+            </div>
+        </div>
     )
 }
 

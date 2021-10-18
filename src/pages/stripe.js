@@ -146,7 +146,7 @@ const Stripe = () => {
                                         thousandSeparator={true}
                                         prefix={"$"}
                                     />
-                                    <button disabled={processing || disabled || succeeded}>
+                                    <button className="btn-last" disabled={processing || disabled || succeeded}>
                                         <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                     </button>
                                 </div>

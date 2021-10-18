@@ -5,11 +5,14 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
 background: #eeeeee;
-height: 50px;
+height: 60px;
 display: flex;
 justify-content: space-between;
 font-weight: bold;
 padding: 0.2rem calc((100vw - 1000px) / 2);
+@media only screen and (max-width: 1200px) {
+	padding: 0.5rem calc((100vw - 1000px) / 2);
+}
 z-index: 12;
 /* Third Nav */
 /* justify-content: flex-start; */
@@ -24,8 +27,9 @@ padding: 0 1rem;
 height: 100%;
 font-weight: bold;
 cursor: pointer;
-&.active {
-	color: #000000;
+&:hover {
+	color: #d70000;
+	text-decoration: none;
 }
 `;
 

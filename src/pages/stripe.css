@@ -23,3 +23,16 @@
 .total{
     padding-top: 10px;
 }
+.btn-last {
+    background-color: #d70000;
+    border-radius: 10px;
+    border: hidden;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.btn-last:hover{
+    background-color:#d63031;
+    color: black;
+}
