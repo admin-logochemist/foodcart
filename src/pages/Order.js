@@ -5,10 +5,15 @@ import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
 import {useSelector} from 'react-redux';
 import { selectItems, selectTotal } from '../features/BasketSlice';
+import { Sidebars } from './Sidebars';
+import "./DashboardTabs.css";
+
 function Order({ order }) {
     const total=useSelector(selectTotal)
     const items=useSelector(selectItems)
     return (
+        
+     
         <div className='order'>
             <h2>Order</h2>
             <p>{moment.unix(order?.created).format("MMMM Do YYYY, h:mma")}</p>
@@ -37,6 +42,7 @@ function Order({ order }) {
                 prefix={"$"}
             />   
         </div>
+      
     )
 }
 

@@ -17,6 +17,10 @@ import Stripe from './pages/Stripe';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js'
 import Orders from './pages/Orders';
+import Profile from './pages/Profile';
+import Restaurant from './pages/Restaurant';
+import FoodCart from './pages/FoodCart';
+import TermsAndConditions from './pages/TermsAndConditions';
 function App() {
     const promise=loadStripe('pk_test_51J5C8JLwMYFuVwcJpbQ11WOXgTvDiN8VHT0KkDG1R3OpRxGAZSmB072QxdrPVcKVeiebK9aOt10IHvOvfeUpfkoP00OqXNDT48')
  const public_URL='food.demoapp-lc.com'
@@ -36,6 +40,11 @@ return (
         <Route  path='/dashboard' component={Dashboard}/>
         <Route path='/checkout' component={Checkout}/>
         <Route path='/orders' component={Orders}/>
+        <Route path='/profile' component={Profile}/>
+        <Route path='/restaurants' component={Restaurant}/>
+        <Route path='/foodcart' component={FoodCart}/>
+        <Route path='/about-us' component={About}/>
+        <Route path='/termsandconditions' component={TermsAndConditions}/>
         <Route path='/Stripe'>
        
         <Elements stripe={promise}>

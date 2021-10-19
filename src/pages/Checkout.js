@@ -6,7 +6,9 @@ import { selectItems, selectTotal } from '../features/BasketSlice'
 import CheckoutProduct from './CheckoutProduct'
 import { useHistory } from 'react-router'
 import StripeCheckout from 'react-stripe-checkout';
+import Footer from './Footer'
 import Currency from 'react-currency-formatter';
+import "./Checkout.css"
 import {loadStripe} from '@stripe/stripe-js'
 function Checkout() {
     const stripePromise=loadStripe();
@@ -16,17 +18,22 @@ function Checkout() {
     function createCheckout (){
         history.push('/stripe')
     }
+    function handleTheClick (){
+        history.push('/')
+    }
     const onToken = (token) => {
         console.log(token)
     }
     
     return (
         <div>
+        <div>
             <main style={{ display: 'flex' ,flexDirection:'row' ,justifyContent:'space-around',flexWrap:'wrap' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', padding: 5, justifyContent: 'space-between', backgroundColor: 'white' }}>
-                    <h1 style={{ borderBottom: '1px solid whitesmoke', paddingBottom: 4 }}>
-                        {items.length === 0 ? "Empty Basket" : "Your Shopping Basket"}
+                    <h1 className="h1h1">
+                        {items.length === 0 ? "Your Food Basket Is Empty, Please Add Some Items" : "Your Shopping Basket :"}
                     </h1>
+                    <button className="Browse-btn" onClick={() => handleTheClick()}>Continue Shopping</button>
                     <div>
                         {items && items?.length ? items.map((item, i) => {
                             return <CheckoutProduct
@@ -43,17 +50,27 @@ function Checkout() {
                 <div>
                     {items.length>0 && (
                         <>
-                        <h3>Subtotal({items.length}):
+                        <div className="background-color">
+                        <h3 className="Subtotal">Subtotal({items.length}):
                         <span>
                             <Currency quantity={total} currency="USD"/>
                         </span>
                         </h3>
                         
-                        <Button role="Link" onClick={() => createCheckout()}> Proceed To CheckOut</Button>
+                        <Button className="btn-proceed" role="Link" onClick={() => createCheckout()}> Proceed To CheckOut</Button>
+                        </div>
                         </>
                     )}
                 </div>
             </main>
+            <br/>
+            <br/>
+            <br/>
+            <Footer/>
+        </div>
+        <div className="copyright-checkout">
+            <h1>Copyright 2020.All rights reserved.</h1>
+        </div>
         </div>
     )
 }

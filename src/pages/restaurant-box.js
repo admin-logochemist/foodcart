@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import ReactStars from "react-rating-stars-component";
 import "./restaurant-box.css"
 import { useSelector } from 'react-redux';
@@ -48,7 +47,6 @@ function Restaurantbox(props) {
         return detail.map((item) => {
           // const storageRef = projectStorage.ref(`images/${item.id}/`).getDownloadURL();
           return (
-
             <FoodResults
               img={item?.postImage}
               category={item?.category}
@@ -67,13 +65,25 @@ function Restaurantbox(props) {
     <div>
       {console.log('food', food)}
       {console.log('selectResturant', selectResturant)}
-      <div>
-        <Image width="100%" height="500px" src={selectResturant?.postImage} />
+      <div style={{
+        backgroundColor: '#fafad2'
+      }}>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Image className="Restaurent-image" width="70%" height="500px" src={selectResturant?.postImage} />
+      </div>
       </div>
       {/* Headings Area */}
       <div className="default">
-        <div className="">
-          <h1>{selectResturant?.resName}</h1>
+        <div style={{
+          marginTop: 20
+        }}>
+          <h1 style={{
+            fontWeight: 'bold'
+          }}>{selectResturant?.resName}</h1>
           <ReactStars
             count={5}
             onChange={ratingChanged}
@@ -84,33 +94,29 @@ function Restaurantbox(props) {
             fullIcon={<i className="fa fa-star"></i>}
             activeColor="#FFFF00"
           />
-
-          <p>{selectResturant?.email}</p>
-          <p>{selectResturant?.phone}</p>
+          <p style={{
+            fontWeight: 'bold'
+          }}> Email : <span style={{
+            color: '#d70000',
+            fontWeight: 'bold'
+          }}>{selectResturant?.email}</span></p>
+          <p style={{
+            fontWeight: 'bold'
+          }}>Phone No # <span style={{
+            color: '#d70000',
+            fontWeight: 'bold'
+          }}>{selectResturant?.phone}</span></p>
           {renderFood()}
         </div>
         <div className="next">
-          <h1>Location</h1>
-
-
+          <h1 style={{
+            fontWeight: 'bold'
+          }}>Location</h1>
           <p>{selectResturant?.address}</p>
-
-
-          {/* <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: "" }}
-          defaultCenter={props.center}
-          defaultZoom={props.zoom}
-        >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          />
-        </GoogleMapReact>
-      </div> */}
         </div>
       </div>
+      <br/>
+      <br/>
     </div>
   );
 };

@@ -1,178 +1,108 @@
-import React from 'react';
-import { AiFillFacebook } from "react-icons/ai";
-import { AiFillTwitterCircle } from "react-icons/ai";
-import { AiOutlineGooglePlus } from "react-icons/ai";
-import { AiFillLinkedin } from "react-icons/ai";
-import { Link, useHistory } from "react-router-dom";
-
-
-
+import "./footer.css"
+import logo from '../images/logofooter.png'
+import { useHistory } from "react-router-dom";
+import { SocialIcon } from 'react-social-icons';
+  
 const Footer = () => {
-  const history= useHistory()
-  function iconClick() {
-    history.push('/facebook')
-  }
+
+  const history = useHistory;
   return (
-    
-    <div>
-      <footer className="footerSetting">
-        <div className='container'>
-          <div className='row text-center text-sm-left'>
-            <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
-             <h5 className="headings">ABOUT US</h5>
-             <div className="footerlink">
-
-              </div>
-              <p className="mt-2">
-              Are you hungry?<br/> Did you have a long and stressful day? Interested in getting a cheesy pizza delivered to your office or looking to avoid the weekly shop? Then FoodPort is the right destination for you! FoodPort offers you a long and detailed list of the best restaurants and shops near you to help make your everyday easier.
-                </p>
-                  <div className="social-icons-new">
-                  <AiFillFacebook onClick={() => iconClick() }/>
-                  <AiFillTwitterCircle/>
-                  <AiOutlineGooglePlus/>
-                  <AiFillLinkedin/>
-                  </div>
-            </div>
-            <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
-              <h5 className="headings">ABOUT</h5>
-              <div className="footerlink">
-
-              </div>
+    <div class="footer-clean">
+      <footer className="footer-bgimage">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-4 col-md-3 item">
+              <h3
+                style={{
+                  color: "#d70000",
+                }}
+              >
+                ABOUT
+              </h3>
               <ul>
-                {/* <hr className="footercolor"/> */}
-                {/* <li className="d-flex justify-content-start">
-                <i class="fa fa-map-marker mx-2" aria-hidden="true"></i>
-                
-                  <a href='#'>Business</a>
-                </li> */}
-                
-                
-                <i class="fa fa-phone mx-2" aria-hidden="true"></i>
-                
-                  <a href='#'>Popular Sites</a>
-                
-                <hr className="footercolor"  />
-               
-                <i class="fa fa-envelope-o mx-2" aria-hidden="true"></i>
-                
-                  <a href='#'>Donation</a>
-              
-                <hr className="footercolor"/>
-               
-                <i class="fa fa-globe mx-2" aria-hidden="true"></i>
-                
-                  <a href='#'>Daily Notification Concept</a>
-              
-              </ul>
-            </div>
-            <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
-              <h5 className="headings">USEFUL LINKS</h5>
-              <div className="footerlink">
-
-              </div>
-              <ul>
-              
-                <li className="d-flex justify-content-between">
-                  <a href='#'>  FAQ</a> 
+                <li>
+                  <a href="#">Popular Sites</a>
                 </li>
-                <hr className="footercolor" />
-                <li className="d-flex justify-content-between">
-                  <a href='#'> Terms & Conditions</a>  
+                <li>
+                  <a href="#">Donation</a>
                 </li>
-                {/* <hr className="footercolor"/>
-                <li className="d-flex justify-content-between">
-                  <a href='#'>&gt;  Privacy policy</a> 
-                </li> */}
-                <hr className="footercolor" />
-                <li className="d-flex justify-content-between">
-                  <a href='#'> Contact Us</a> 
-                </li>
-                {/* <hr className="footercolor" /> */}
-                <li className="d-flex justify-content-between">
-                  
+                <li>
+                  <a href="/#/about-us">About us</a>
                 </li>
               </ul>
             </div>
-            <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
-              <h5 className="headings">FOR BUSINESS</h5>
-              <div className="footerlink">
-
-              </div>
+            <div class="col-sm-4 col-md-3 item">
+              <h3
+                style={{
+                  color: "#d70000",
+                }}
+              >
+                USEFUL LINKS
+              </h3>
               <ul>
                 <li>
-                  <div className="d-flex ">
-                  <div className="divlength mr-3">
-
-                  </div>
-                  <div>
-                  <a href='#'>Clain your business page</a>{' '}<br/>
-                  {/* <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i> */}
-                  </div>
-                  </div>
+                  <a href="#">FAQ</a>
                 </li>
                 <li>
-                  <div className="d-flex ">
-                  <div className="divlength mr-3">
-
-                  </div>
-                  <div>
-                  <a href='#'>Sucess stories</a>{' '}<br/>
-                  {/* <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i> */}
-                  </div>
-                  </div>
+                  <a href="/#/termsandconditions">Terms & Conditions</a>
                 </li>
                 <li>
-                  <div className="d-flex ">
-                  <div className='divlength mr-3'>
-
-                  </div>
-                  <div>
-                  <a href='#'>Business support</a>{' '}<br/>
-                  {/* <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i> */}
-                  </div>
-                  </div>
+                  <a href="/#/contact">Contact Us</a>
                 </li>
-                <li>
-                  <div className="d-flex ">
-                  <div className="divlength mr-3">
-
-                  </div>
-                  <div>
-                  <a href='#'>Advertise</a>{' '}<br/>
-                  </div>
-                  </div>
-                </li>
-                
               </ul>
+            </div>
+            <div class="col-sm-4 col-md-3 item">
+              <h3
+                style={{
+                  color: "#d70000",
+                }}
+              >
+                FOR BUSINESS
+              </h3>
+              <ul>
+                <li>
+                  <a href="#">Clain your business page</a>
+                </li>
+                <li>
+                  <a href="#">Success stories</a>
+                </li>
+                <li>
+                  <a href="#">Business support</a>
+                </li>
+                <li>
+                  <a href="#">Advertise</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 item social">
+              <a href="#">
+              <SocialIcon url="https://twitter.com/" />
+              </a>
+              <a href="#">
+              <SocialIcon url="https://facebook.com/" />
+              </a>
+              <a href="#">
+              <SocialIcon url="https://snapchat.com/" />
+              </a>
+              <a href="#">
+              <SocialIcon url="https://instagram.com/" />
+              </a>
+              <img 
+                  style={{
+                  width: 250,
+                  padding: 10,
+                  marginLeft: 10,
+                  cursor: 'pointer'
+                }}
+                 href="/#/"
+                src={logo}
+                alt="Logo"
+              />
             </div>
           </div>
         </div>
       </footer>
-      <div className=' footer-bootom' style={{ width: '98.85%' }}>
-        <div className=''>
-          <div className='row full-width'>
-            <div className="CopyRight">
-              <p className='no-margin-bottom full-width text-center text-light bg-dark p-3'>
-               @ Copyright FoodPort &copy; {new Date().getFullYear()}  All Rights Reserved
-              </p>
-            </div>
-            
-          </div>
-        </div>
-      </div>
     </div>
-  )
-}
+  );
+};
 export default Footer;

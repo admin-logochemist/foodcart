@@ -28,8 +28,6 @@ function AddFood() {
 
     e.preventDefault();
     console.log(file)
-
-
     db.collection("food").add(
       {
         category: category,
@@ -53,15 +51,11 @@ function AddFood() {
               postImage: url
             }, { merge: true })
           })
-
       })
       history.push('/dashboard')
       // { file && <ProgressBar file={file} setFile={setFile} /> }
     }
     )
-
-
-
   }
   return (
     <div className="AddCart">
@@ -70,9 +64,7 @@ function AddFood() {
         <form>
           {console.log('params', params)}
           {console.log('location', location)}
-
           <input value={category} type="text" placeholder="Category" onChange={(e) => setCategory(e.target.value)} />
-
           <select value={type} onChange={(e) => setType(e.target.value)}>
             <option value="">Select Food Type</option>
             <option value="dinner">Dinner</option>
@@ -84,12 +76,7 @@ function AddFood() {
           <textarea value={description} type="text" placeholder="Description" onChange={(e) => setDescription(e.target.value)} />
           <label for="file">Food Picture</label>
           <input onChange={addImagetoPost} type="file" id="file" name="datafile" />
-
-
-
           <Button onClick={handleSubmit}>ADD FOOD</Button>
-
-
         </form>
       </div>
     </div>

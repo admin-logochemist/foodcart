@@ -12,7 +12,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import "./NavbarElements.css"
 import { logout, selectUser } from '../../features/UserSlice';
 import { auth } from '../../firebase';
-import logo from '../../images/logo.png'
+import logo from '../../images/logologo.png'
 import { Link, useHistory } from "react-router-dom";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -37,12 +37,13 @@ const Navbar = () => {
     return (
         <>
            <Nav style={{ cursor: 'pointer' }}>
+           
             <img className="logo-png" src={logo} onClick={() => handleClick()}/>
             {/* <Bars /> */}
             <div className="Mobile-layout">
             <a href="/">HOME</a>
-            <a href="/Contact">CONTACT</a>
-            <a href="/SignIn">LOGIN</a>
+            <a href="/#/contact">CONTACT</a>
+            <a href="/#/signIn">LOGIN</a>
             </div>
             <NavMenu>
                 <NavLink to="/" activeStyle>
@@ -54,14 +55,7 @@ const Navbar = () => {
                 <NavLink to="/SignIn" activeStyle>
                     LOGIN
                 </NavLink>
-                <button style={{ backgroundColor: '#d70000',
-                 border: 'hidden',
-                  color: 'white',
-                   padding: 5,
-                   fontWeight: 'bold',
-                    paddingRight: 20,
-                    paddingLeft: 20               
-                     }} onClick={() => handletheClick()}>BECOME A PARTNER</button>
+                <button className="btn-main-nav" onClick={() => handletheClick()}>BECOME A PARTNER</button>
                     <Badge color="secondary" badgeContent={itemCount}>
                         <div style={{ color: '#d70000', marginLeft: 10 }}>
                         <ShoppingCartIcon  onClick={()=>{history.push('Checkout')}}/>

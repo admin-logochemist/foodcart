@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-around;
 }
-
 .MuiTabs-root{
     overflow: visible!important;
 }

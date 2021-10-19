@@ -1,51 +1,50 @@
-.Dashboard-Tabs{
-   background-color: whitesmoke;
-   
-    color: black;
-}
-.MuiTabs-vertical {
-    flex-direction: column;
-    background: whitesmoke;
-    color: black;
-    font-weight: 900;
-}
-.Dashboard-box h1{
-    color: Red;
-}
-.Dashboard-box h2{
-    font-weight: bold;
-}
-.event__infoTop{
-    width: 25vw;
-}
-.event__infoTop> h3 {
-    font-weight: 90px;
-    margin-top: 10px;
-    font-size: 23px;
-}
-.event__infoTop>p {
-    font-size: 13px;
-    margin-top: 10px;
-    color: gray;
-}
-.eventr__info{
+.DashboardTabs {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 20px;
+    flex: 0.7;
 }
-.A-Box {
+.left-area{
+    flex: 0.4;
+    width: 300px;
+    background-color: #d70000;
+    height: 100vh;
+}
+.btn-handleClick{
+    margin: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+.btn-handleClick:hover{
+    background-color: black;
+    border-radius: 20%;
+    width: 40%;
+}
+.center{
+    text-align: left;
+}
+.Avatar{
     display: flex;
     justify-content: space-between;
-    height: 16vh;
-    border: 2px solid whitesmoke;
-    width: 800px;
+    background-color: black;
+    padding-top: 5px;
+    height: 8vh;
 }
-
-
-.Box-headings p{
-    padding: 35px;
+.btn-one{
+    padding: 50px;
 }
-.Box-heading2 p{
-    padding: 35px;
+.name{
+    font-size: 16px;
+    padding: 13px;
+    color: white;
+}
+.div{
+    display: flex;
+    flex-direction: row;
+}
+@media only screen and (max-width: 1200px){
+    .left-area{
+        width: 145px;
+        background-color: #d70000;
+        height: 100vh;
+    }
 }
