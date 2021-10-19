@@ -55,7 +55,8 @@ function AddResturant() {
               })
     
           })
-          history.push('/dashboard')
+         
+          
           // { file && <ProgressBar file={file} setFile={setFile} /> }
         }
         

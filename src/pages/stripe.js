@@ -88,7 +88,7 @@ const Stripe = () => {
             <div className='payment__container'>
                 <h1>
                     Checkout (
-                        <Link to="/checkout">{total} items</Link>
+                        <Link to="/checkout">{items.length} items</Link>
                         )
                 </h1>
 
